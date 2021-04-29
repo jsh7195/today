@@ -68,7 +68,12 @@ const Stock = (): React.ReactElement => {
                 {
                     !!coinInfoReducer.success ?
                         coinInfoReducer?.coinInfo?.map((item) => 
-                            <span>{item.candle_acc_trade_price}</span>
+                        <div>
+                            현재가 : <span>{item.trade_price}</span><br/>
+                            전일대비<br/>
+                            <span>{(item.change_rate * 100).toFixed(2)}%</span><br/>
+                            <span>{item.change_price}원</span><br/>
+                        </div>
                         )
                         :
                         <span>코인을 선택해주세요</span>
