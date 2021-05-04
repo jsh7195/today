@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import WaterTempReducer from './WaterTempReducer';
-import { CoinInfoReducer, CoinListReducer } from './CoinInfoReducer';
+import WaterTempReducer from './Investment/WaterTempReducer';
+import { CoinInfoReducer, CoinListReducer } from './Investment/CoinInfoReducer';
 
 const rootReducer = combineReducers({
   WaterTempReducer,

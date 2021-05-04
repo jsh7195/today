@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import LabelInput from '@module/LabelInput/LabelInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducerType } from '../../store';
-import { fetchWaterTempData } from '../../actions/WaterTempActions';
-import { fetchCoinListData, fetchCoinInfoData } from '../../actions/CoininfoActions';
+import { fetchWaterTempData } from '@actions/Investment/WaterTempActions';
+import { fetchCoinListData, fetchCoinInfoData, fetchBinBtcInfoData } from '@actions/Investment/CoinInfoActions';
 
 const Stock = (): React.ReactElement => {
 
@@ -35,8 +35,13 @@ const Stock = (): React.ReactElement => {
             dispatch(fetchCoinListData());
         };
 
+        const searchBinBtcFn = () => {
+            dispatch(fetchBinBtcInfoData());
+        }
+
         searchWaterTempFn();
         searchCoinListFn();
+        searchBinBtcFn();
     }, []);
 
     useEffect(() => {

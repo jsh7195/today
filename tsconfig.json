@@ -23,6 +23,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
+      "@actions/*": ["src/actions/*"],
       "@atoms/*": ["src/components/atoms/*"],
       "@module/*": ["src/components/module/*"],
       "@template/*": ["src/components/template/*"],
