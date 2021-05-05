@@ -19,7 +19,7 @@ export const fetchFgi = createAsyncThunk<
     try {
         const {data} = await axios.get('https://fear-and-greed-index.p.rapidapi.com/v1/fgi',{
             headers : {
-                'x-rapidapi-key': '733e5538f5msh1f668b0ba7c37bep145bb6jsn8436cbc2f468',
+                'x-rapidapi-key': '',
                 'x-rapidapi-host': 'fear-and-greed-index.p.rapidapi.com'
             }
         })
