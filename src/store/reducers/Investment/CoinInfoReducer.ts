@@ -8,7 +8,7 @@ import {
   BinCoinInfo,
   ListCoinInfo,
   CoinInfo,
-} from '@actions/Investment/CoinInfoActionTypes';
+} from '@/store/actions/Investment/CoinInfoActionTypes';
 
 interface InitialBinBtcInfo {
   success: boolean;

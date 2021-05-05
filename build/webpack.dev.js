@@ -11,7 +11,8 @@ module.exports = {
     extensions: ['.js', '.json', '.ts', '.tsx'],
     alias: {
       '@': resolve('src'),
-      '@actions': resolve('src/actions'),
+      '@slice': resolve('src/store/Slice'),
+      '@actions': resolve('src/store/actions'),
       '@atoms': resolve('src/components/atoms/'),
       '@module': resolve('src/components/module/'),
       '@template': resolve('src/components/template/'),

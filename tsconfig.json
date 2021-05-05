@@ -23,7 +23,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@actions/*": ["src/actions/*"],
+      "@store/*": ["src/store/*"],
+      "@slice/*": ["src/store/Slice/*"],
+      "@actions/*": ["src/store/actions/*"],
       "@atoms/*": ["src/components/atoms/*"],
       "@module/*": ["src/components/module/*"],
       "@template/*": ["src/components/template/*"],
@@ -33,5 +35,5 @@
   },
   "include": [
     "./src/*"
-  ]
+, "src/store/actions", "src/store/reducers", "src/store/store.ts"  ]
 }

@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import LabelInput from '@module/LabelInput/LabelInput';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootReducerType } from '../../store';
-import { fetchWaterTempData } from '@actions/Investment/WaterTempActions';
+import { RootReducerType } from '../../store/store';
+import { fetchWaterTempData } from '@/store/actions/Investment/WaterTempActions';
 import { fetchCoinListData, fetchCoinInfoData, fetchBinBtcInfoData } from '@actions/Investment/CoinInfoActions';
+import { fetchFgi, fgiState, stockLoading } from '@slice/StockSlice';
 
 const Stock = (): React.ReactElement => {
 
     const dispatch = useDispatch();
 
     const [selectCoins, setSelectCoin] = useState('KRW-BTC');
+
+    const fgiInfo = useSelector(fgiState);
+    const selectorStockLoading = useSelector(stockLoading);
 
     const waterTempReducer = useSelector(
         (state: RootReducerType) => state.WaterTempReducer
@@ -39,9 +43,14 @@ const Stock = (): React.ReactElement => {
             dispatch(fetchBinBtcInfoData());
         }
 
+        const searchFgiFn = () => {
+            dispatch(fetchFgi());
+        }
+
         searchWaterTempFn();
         searchCoinListFn();
         searchBinBtcFn();
+        searchFgiFn();
     }, []);
 
     useEffect(() => {
@@ -51,6 +60,7 @@ const Stock = (): React.ReactElement => {
 
         searchCoinInfoFn();
     }, [selectCoins])
+    console.log('selectorStockLoading',selectorStockLoading);
     return (
         <div>
             <LabelInput
@@ -77,13 +87,21 @@ const Stock = (): React.ReactElement => {
                             현재가 : <span>{item.trade_price}</span><br/>
                             전일대비<br/>
                             <span>{(item.change_rate * 100).toFixed(2)}%</span><br/>
-                            <span>{item.change_price}원</span><br/>
+                            <span>{item.change_price > 0 ? '+':''}{item.change_price}원</span><br/>
                         </div>
                         )
                         :
                         <span>코인을 선택해주세요</span>
                 }
             </div>
+            { selectorStockLoading ? 
+                <div>로딩중...</div> 
+                :
+                <div>
+                    <span>Fear And Greed : </span>
+                    <span>{fgiInfo?.now?.value}</span>
+                </div>
+            }
         </div>
     )
 }

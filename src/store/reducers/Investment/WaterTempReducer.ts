@@ -3,7 +3,7 @@ import {
   WaterTempDispatchType,
   WATER_TEMP_SUCCESS,
   WATER_TEMP_FAIL,
-} from '@actions/Investment/WaterTempActionTypes';
+} from '@/store/actions/Investment/WaterTempActionTypes';
 
 interface InitialState {
   success: boolean;

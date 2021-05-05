@@ -15,6 +15,7 @@ import {
   ,BIN_BTC_INFO_FAIL
 } from './CoinInfoActionTypes';
 
+//코인 전체목록
 export const fetchCoinListData = () => async (
   dispatch: Dispatch<CoinListDispatchType>
 ) => {
@@ -37,6 +38,7 @@ export const fetchCoinListData = () => async (
   }
 };
 
+// 선택 코인정보
 export const fetchCoinInfoData = (market:string) => async (
   dispatch: Dispatch<CoinInfoDispatchType>
 ) => {
@@ -56,6 +58,7 @@ export const fetchCoinInfoData = (market:string) => async (
   }
 };
 
+// 바이낸스 비트코인 가격 정보
 export const fetchBinBtcInfoData = () => async (
   dispatch: Dispatch<BinBtcInfoDispatchType>
 ) => {
