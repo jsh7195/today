@@ -1,10 +1,13 @@
 const path = require('path');
+const webpack = require('webpack');
+const dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const domain = process.env.NODE_ENV === 'local' ? 'http://localhost:9071' : 'http://221.139.14.153:9071'
 const resolve = (dir) => {
   return path.join(__dirname, '..', dir)
 }
+
 module.exports = {
   mode: 'development',
   resolve: {
@@ -13,11 +16,11 @@ module.exports = {
       '@': resolve('src'),
       '@slice': resolve('src/store/Slice'),
       '@actions': resolve('src/store/actions'),
-      '@atoms': resolve('src/components/atoms/'),
+      '@store': resolve('src/store'),
+      '@atoms': resolve('src/components/atoms'),
       '@module': resolve('src/components/module/'),
-      '@template': resolve('src/components/template/'),
-      '@lib': resolve('src/lib/'),
-      '@const': resolve('src/constants/serviceConstants'),
+      '@template': resolve('src/components/template'),
+      '@lib': resolve('src/lib'),
     },
   },
   entry: {
@@ -115,5 +118,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new dotenv()
   ],
 };

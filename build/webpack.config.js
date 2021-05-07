@@ -7,12 +7,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', 'ts', 'tsx'],
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
-      '@atoms': path.resolve('src/components/atoms/'),
-      '@module': path.resolve('src/components/module/'),
-      '@template': path.resolve('src/components/template/'),
-      '@lib': path.resolve('src/lib/'),
-      '@const': path.resolve('src/constants/serviceConstants'),
+      '@': resolve('src'),
+      '@slice': resolve('src/store/Slice'),
+      '@actions': resolve('src/store/actions'),
+      '@store': resolve('src/store'),
+      '@atoms': resolve('src/components/atoms'),
+      '@module': resolve('src/components/module/'),
+      '@template': resolve('src/components/template'),
+      '@lib': resolve('src/lib'),
     },
   },
   entry: {
