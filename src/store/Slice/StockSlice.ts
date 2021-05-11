@@ -60,6 +60,7 @@ export const stock = createSlice({
     // }    
   },
   extraReducers: {
+    // ------------------ fgi ------------------
     [fetchFgi.pending.type]: (state, action) => {
       // 호출 전
       state.loading = true;
@@ -76,7 +77,7 @@ export const stock = createSlice({
       // 실패
       state.loading = false;
     },
-
+    // ------------------ exchange ------------------
     [fetchExchangeRate.pending.type]: (state, action) => {
       // 호출 전
       state.loading = true;

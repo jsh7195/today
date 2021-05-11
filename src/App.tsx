@@ -1,8 +1,8 @@
 import React from 'react';
-import Stock from '@template/Stock';
+import MainPage from '@template/MainPage/MainPage';
 
 function App() {
-  return <Stock/>;
+  return <MainPage />;
 }
 
 export default App;

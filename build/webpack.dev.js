@@ -18,8 +18,8 @@ module.exports = {
       '@actions': resolve('src/store/actions'),
       '@store': resolve('src/store'),
       '@atoms': resolve('src/components/atoms'),
-      '@module': resolve('src/components/module/'),
-      '@template': resolve('src/components/template'),
+      '@module': resolve('src/components/module'),
+      '@template': resolve('src/components/template/'),
       '@lib': resolve('src/lib'),
     },
   },
@@ -97,6 +97,14 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           '/BINANCE': '',
+        },
+      },
+      '/DATAKR': {
+        target: `http://openapi.data.go.kr/openapi/service/rest`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/DATAKR': '',
         },
       },
     },

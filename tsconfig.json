@@ -22,18 +22,16 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@store/*": ["src/store/*"],
-      "@slice/*": ["src/store/Slice/*"],
-      "@actions/*": ["src/store/actions/*"],
-      "@atoms/*": ["src/components/atoms/*"],
-      "@module/*": ["src/components/module/*"],
-      "@template/*": ["src/components/template/*"],
-      "@lib/*": ["src/lib/*"],
-      "@const/*": ["src/constants/serviceConstants/*"],
+      "@/*": ["./src/*"],
+      "@store/*": ["./src/store/*"],
+      "@slice/*": ["./src/store/Slice/*"],
+      "@actions/*": ["./src/store/actions/*"],
+      "@atoms/*": ["./src/components/atoms/*"],
+      "@module/*": ["./src/components/module/*"],
+      "@template/*": ["./src/components/template/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@const/*": ["./src/constants/serviceConstants/*"],
     }
   },
-  "include": [
-    "./src/*"
-, "src/store/actions", "src/store/reducers", "src/store/store.ts"  ]
+  "include": ["src"]
 }
