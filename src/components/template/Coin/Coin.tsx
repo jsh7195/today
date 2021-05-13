@@ -91,7 +91,6 @@ const Coin = (): React.ReactElement => {
 
         searchCoinInfoFn();
     }, [selectCoins])
-    console.log('selectorStockLoading', selectorStockLoading);
     return (
         <div>
             <RootDiv>
@@ -132,7 +131,7 @@ const Coin = (): React.ReactElement => {
                     }
                 </ItemDiv>
                 <ItemDiv>
-                    <Tv ticker={selectCoins} />
+                    <Tv ticker={selectCoins} kind="coin"/>
                 </ItemDiv>
             </RootDiv>
         </div>

@@ -17,7 +17,7 @@ export const ContentDiv = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 77%;
+    width: 67%;
 `;
 
 
@@ -31,3 +31,7 @@ export const ItemDiv = styled.div`
     padding-bottom: 30px;
     padding-right: 30px;
 `;
+
+export  const RightAd = styled.div`
+    width: 15%;
+`

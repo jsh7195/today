@@ -95,12 +95,11 @@ const Stock = (): React.ReactElement => {
     return (
         <div>
             <Dashboard />
-            <LabelInput
-                label="한강 수온"
-                value={waterTempReducer.temp || ""}
-                readOnly
-            />
+
             <RootDiv>
+                <ItemDiv>
+                    <span>한강수온 :{waterTempReducer.temp || ""}</span>
+                </ItemDiv>
                 <ItemDiv>
                     {selectorStockLoading ?
                         <div>로딩중...</div>
@@ -119,6 +118,11 @@ const Stock = (): React.ReactElement => {
                             <span>환율 : {exchangeInfo}</span>
                         </div>
                     }
+                </ItemDiv>
+            </RootDiv>
+            <RootDiv>
+                <ItemDiv>
+                    <Tv ticker="AAPL" kind="stock" />
                 </ItemDiv>
             </RootDiv>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MainDiv, NavDownDiv, ContentDiv, ItemDiv, NavItemDiv } from './style';
+import { MainDiv, NavDownDiv, ContentDiv, ItemDiv, NavItemDiv, RightAd } from './style';
 import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
@@ -27,16 +27,16 @@ const MainPage = (): React.ReactElement => {
 
     const [menu, setMenu] = useState('Stock');
 
-    const getMenuEle = (type:string) => {
+    const getMenuEle = (type: string) => {
         switch (type) {
             case 'Stock':
-                return <Stock/>
+                return <Stock />
                 break;
             case 'Coin':
-                return <Coin/>
+                return <Coin />
                 break;
             case 'Life':
-                return <Life/>
+                return <Life />
                 break;
             default:
                 return <div>No Content</div>
@@ -45,7 +45,7 @@ const MainPage = (): React.ReactElement => {
     }
 
     // useEffect(() => {
-        
+
 
     // }, [menu])
 
@@ -59,14 +59,19 @@ const MainPage = (): React.ReactElement => {
                     }>{item.nm}</span></NavItemDiv>
                 })
             }
-            <iframe src="https://coupa.ng/bZicV8" width="120" height="240" frameBorder="0" scrolling="no" referrerPolicy="unsafe-url"></iframe>
-            <iframe src="https://coupa.ng/bZicqx" width="120" height="240" scrolling="no" frameBorder="0" referrerPolicy="unsafe-url"></iframe>
+            <div style={{ display: "flex", flexDirection: "row", flexWrap: "nowrap" }}>
+                <iframe src="https://coupa.ng/bZicV8" width="120" height="240" frameBorder="0" scrolling="no" referrerPolicy="unsafe-url"></iframe>
+                <iframe src="https://coupa.ng/bZicqx" width="120" height="240" scrolling="no" frameBorder="0" referrerPolicy="unsafe-url"></iframe>
+            </div>
         </NavDownDiv>
 
         <ContentDiv>
             {getMenuEle(menu)}
         </ContentDiv>
-    </MainDiv>;
+        <RightAd>
+            Ad pan
+        </RightAd>
+    </MainDiv >;
 }
 
 export default MainPage;

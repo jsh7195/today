@@ -4,7 +4,7 @@ import { theme } from 'styled-tools';
 export const RootDiv = styled.div`
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap
+    flex-wrap: nowrap
 `;
 
 export const ItemDiv = styled.div`
