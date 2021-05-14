@@ -58,7 +58,9 @@ const Weather = (): React.ReactElement => {
                     {
                         _airState[0] ?
                             <div>
+                                <br/>
                                 <div>발생원인 : {_airState[0].informCause}</div>
+                                <br/>
                                 <div>예보개황 : {_airState[0].informCause}</div>
                             </div>
                             :
