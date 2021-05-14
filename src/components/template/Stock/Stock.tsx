@@ -1,39 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootDiv, ItemDiv } from './style';
-import NativeSelect from '@material-ui/core/NativeSelect';
-import {
-    createMuiTheme,
-    makeStyles,
-    createStyles,
-    Theme as AugmentedTheme,
-    ThemeProvider,
-} from '@material-ui/core/styles';
-import LabelInput from '@module/LabelInput/LabelInput';
 import { RootReducerType } from '@store/store';
 import { fetchWaterTempData } from '@store/actions/Investment/WaterTempActions';
 import { fetchCoinListData, fetchCoinInfoData, fetchBinBtcInfoData } from '@actions/Investment/CoinInfoActions';
 import { fetchFgi, fgiState, exchangeRateState, exchangeRateLoading, fgiLoading, fetchExchangeRate } from '@slice/StockSlice';
 import { Tv } from '@module/TradingviewWidget/Tv';
 import { Dashboard } from '@module/TradingviewWidget/Dashboard';
-const useStyles = makeStyles((theme: AugmentedTheme) =>
-    createStyles({
-        root: {
-            color: 'gray',
-        },
-        icon: {
-            color: 'white'
-        }
-    }),
-);
 
 const Stock = (): React.ReactElement => {
 
-    const classes = useStyles();
-
     const dispatch = useDispatch();
 
-    const [selectCoins, setSelectCoin] = useState('KRW-BTC');
+    const [selectCoins, ] = useState('KRW-BTC');
 
     const exchangeInfo = useSelector(exchangeRateState);
     const selectorExchangeRateLoading = useSelector(exchangeRateLoading);
@@ -44,17 +23,6 @@ const Stock = (): React.ReactElement => {
     const waterTempReducer = useSelector(
         (state: RootReducerType) => state.WaterTempReducer
     );
-
-    const coinListReducer = useSelector(
-        (state: RootReducerType) => state.CoinListReducer
-    );
-    const coinInfoReducer = useSelector(
-        (state: RootReducerType) => state.CoinInfoReducer
-    );
-
-    const coinOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectCoin(e.target.value);
-    }
 
     useEffect(() => {
         const searchWaterTempFn = () => {
@@ -91,7 +59,7 @@ const Stock = (): React.ReactElement => {
 
         searchCoinInfoFn();
     }, [selectCoins])
-    console.log('selectorStockLoading', selectorStockLoading);
+    
     return (
         <div>
             <Dashboard />
@@ -120,10 +88,13 @@ const Stock = (): React.ReactElement => {
                         </div>
                     }
                 </ItemDiv>
+                <ItemDiv>
+                    <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://finviz.com/map.ashx">나스닥 맵</a>
+                </ItemDiv>
             </RootDiv>
             <RootDiv>
                 <ItemDiv>
-                    <Tv ticker="AAPL" kind="stock" />
+                    <Tv ticker="QQQ" kind="stock" />
                 </ItemDiv>
             </RootDiv>
         </div>

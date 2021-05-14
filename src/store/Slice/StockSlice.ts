@@ -97,13 +97,6 @@ export const stock = createSlice({
   }
 });
 
-// const fgiState = (state: RootReducerType) => state.stock.fgi;
-
-// export const getFgi = createSelector(fgiState, state => {
-//     console.log('state11111111111111111111',state);
-//     return state;
-// });
-
 export const fgiState = (state: RootReducerType) => state.stock.fgi;
 export const fgiLoading = (state: RootReducerType) => state.stock.loading;
 
