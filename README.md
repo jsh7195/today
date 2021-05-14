@@ -1,6 +1,3 @@
-# notice
-!깃헙가디언 때문에 api 인증키가 들어있는 .env파일은 제외시킴
-
 # yarn start
 [yarn dev]랑 명령어 동일함
 
@@ -24,3 +21,4 @@ webpack-dev-server
 
 
 
+![today현재](https://user-images.githubusercontent.com/13713152/118281700-7a3b3b00-b508-11eb-8648-b5e55d6d2b6d.JPG)
