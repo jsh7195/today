@@ -22,7 +22,7 @@ export const Tv = ({
 
             let symbol = kind === 'coin' ? 
             `"BITHUMB:${ticker ? ticker.replace('KRW-', '') : 'BTC'}KRW"` 
-            :`"NASDAQ:AAPL"`
+            :`"NASDAQ:QQQ"`
 
 
             const innerScript = document.createElement('script');

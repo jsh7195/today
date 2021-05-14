@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCorona, coronaLoading, coronaState, corona, coronaDiffCnt, coronaAgoDiffCnt, coronaFullState } from '@slice/CoronaSlice';
 import moment from 'moment';
-import { numComma } from '@lib/common';
 import Chart from 'react-apexcharts'
 import _ from 'lodash';
 import { Line } from 'react-chartjs-2';
+import { numComma } from '@lib/common';
+import { ChartDiv } from './style';
 
 const Corona = (): React.ReactElement => {
 
@@ -113,7 +114,8 @@ const Corona = (): React.ReactElement => {
                 },
             }
 
-        }
+        },
+        maintainAspectRatio: false
     };
     // chartjs option end
 
@@ -126,12 +128,14 @@ const Corona = (): React.ReactElement => {
             <>
                 {
                     coronaFullDate.date && coronaFullDate.date.length > 0 ?
-                        <Line data={chartjsData} options={options} type="linear" width={300} height={200} />
+                    <ChartDiv>
+                        <Line data={chartjsData} options={options} type="linear" width={180} height={80} />
+                        <div>{moment().add(-2,'days').format('YYYY.MM.DD')} 확진자 수 : {diff}</div>
+                        <div>{moment().add(-3,'days').format('YYYY.MM.DD')} 확진자 수 : {agoDiff}</div>
+                    </ChartDiv>
                         :
-                        ''
+                        <div>코로나 데이터 호출 실패</div>
                 }
-                <div>오늘 확진자 수 : {diff}</div>
-                <div>어제 확진자 수 : {agoDiff}</div>
             </>
             :
             <div>코로나 정보 Loading...</div>

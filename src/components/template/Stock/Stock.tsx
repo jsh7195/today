@@ -107,6 +107,7 @@ const Stock = (): React.ReactElement => {
                         <div>
                             <span>Fear And Greed : </span>
                             <span>{fgiInfo?.now?.value}</span>
+                            <span>{` (어제 ${fgiInfo?.previousClose?.value})`}</span>
                         </div>
                     }
                 </ItemDiv>

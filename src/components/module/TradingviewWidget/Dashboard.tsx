@@ -20,6 +20,10 @@ export const Dashboard = (): React.ReactElement => {
                     {
                         "proName": "FX_IDC:EURUSD",
                         "title": "EUR/USD"
+                    },
+                    {
+                        "proName": "KRX:KOSPI200",
+                        "title": "코스피 200"
                     }
                 ],
                 "colorTheme": "dark",
@@ -39,10 +43,10 @@ export const Dashboard = (): React.ReactElement => {
 
 
     return (
-        <div className="tradingview-widget-container" style={{ minWidth: '800px' , width: '800px' }}>
+        <div className="tradingview-widget-container" style={{ minWidth: '800px' , width: '1000px' }}>
+            <div id="dashboard" />
             <div className="tradingview-widget-container__widget"></div>
             <div className="tradingview-widget-copyright">TradingView 제공 <a href="https://kr.tradingview.com" rel="noopener" target="_blank"><span className="blue-text">쿼트</span></a></div>
-            <div id="dashboard" />
         </div>
     )
 }

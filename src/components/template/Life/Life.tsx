@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Corona from '@module/Corona/Corona';
-
+import Weather from '@module/Weather/Weather';
+import { RootDiv, ItemDiv, ChartItemDiv, SmallItemDiv } from './style';
 
 const Life = (): React.ReactElement => {
-    return <Corona />
+    return <RootDiv>
+        <ChartItemDiv>
+            <Corona />
+        </ChartItemDiv>
+        <SmallItemDiv>
+            <Weather />
+        </SmallItemDiv>
+    </RootDiv>
 }
 
 export default Life;
