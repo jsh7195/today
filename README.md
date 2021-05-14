@@ -1,3 +1,6 @@
+# notice
+!깃헙가디언 때문에 api 인증키가 들어있는 .env파일은 제외시킴
+
 # yarn start
 [yarn dev]랑 명령어 동일함
 
