@@ -18,7 +18,7 @@ export const Tv = ({
     }
 
     const makeCoinChart = (ticker: string, kind: string) => {
-        if (document.getElementById("coinChart")!.childNodes[0]) {
+        if (document.getElementById("coinChart") && document.getElementById("coinChart")!.childNodes.length > 0) {
 
             let symbol = kind === 'coin' ? 
             `"BITHUMB:${ticker ? ticker.replace('KRW-', '') : 'BTC'}KRW"` 
