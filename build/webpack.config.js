@@ -1,41 +1,47 @@
 const path = require('path');
+const webpack = require('webpack');
+const dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const domain = process.env.NODE_ENV === 'local' ? 'http://localhost:9071' : 'http://221.139.14.153:9071'
+const resolve = (dir) => {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   resolve: {
-    extensions: ['.js', '.jsx', 'ts', 'tsx'],
+    extensions: ['.js', '.json', '.ts', '.tsx'],
     alias: {
       '@': resolve('src'),
       '@slice': resolve('src/store/Slice'),
       '@actions': resolve('src/store/actions'),
       '@store': resolve('src/store'),
       '@atoms': resolve('src/components/atoms'),
-      '@module': resolve('src/components/module/'),
-      '@template': resolve('src/components/template'),
+      '@module': resolve('src/components/module'),
+      '@template': resolve('src/components/template/'),
       '@lib': resolve('src/lib'),
     },
   },
   entry: {
-    app: ['core-js/stable', './src/index.tsx'],
+    app: ['./src/index.tsx'],
   },
   output: {
-    path: path.resolve(`${__dirname}/dist/`),
+    path: path.resolve(`${__dirname}/dist`),
     publicPath: '/',
     filename: 'bundle.js',
   },
-  // devtool: 'inline-source-map',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
+              presets: ['@babel/preset-env', '@babel/preset-react','@babel/preset-typescript'],
             },
           },
         ],
@@ -58,6 +64,7 @@ module.exports = {
     ],
   },
   devServer: {
+    host: '0.0.0.0',
     port: 7000,
     contentBase: path.resolve(`${__dirname}`),
     inline: true,
@@ -69,12 +76,44 @@ module.exports = {
       ignored: ['node_modules'],
     },
     proxy: {
-      '/PD': {
-        target: 'http://localhost:9071/master/api/v1/pd/',
-        changeOrigin: true,
+      '/WATER/TEMP': {
+        target: `https://api.hangang.msub.kr`,
         secure: false,
+        changeOrigin: true,
         pathRewrite: {
-          '/PD/': '/',
+          '/WATER/TEMP': '/',
+        },
+      },
+      '/COIN/INFO/': {
+        target: `https://api.upbit.com/v1/`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/COIN/INFO/': '/',
+        },
+      },
+      '/BINANCE': {
+        target: `https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/BINANCE': '',
+        },
+      },
+      '/DATAKR': {
+        target: `http://openapi.data.go.kr/openapi/service/rest`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/DATAKR': '',
+        },
+      },
+      '/SUB-DATAKR/': {
+        target: `http://apis.data.go.kr/B552584/`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/SUB-DATAKR/': '/',
         },
       },
     },
@@ -89,12 +128,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      // favicon: '',
+      favicon: './public/favicon.ico',
       chunks: ['css', 'images', 'webfonts'],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new dotenv()
   ],
 };
