@@ -4,7 +4,10 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import { logger } from 'redux-logger'
 
-const middleware = [ ...getDefaultMiddleware(), logger, thunk ];
+
+const middleware = process.env.NODE_ENV === 'production' ?
+[ ...getDefaultMiddleware(), thunk ] :
+[ ...getDefaultMiddleware(), logger, thunk ];
 
 const store = configureStore({
     reducer : rootReducer,
