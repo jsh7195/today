@@ -11,8 +11,7 @@ import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
 import Game from '@template/Game/Game';
-import GoogleAdsense from 'react-adsense-google';
-
+import GoogleAd from '@module/AD/GoogleAd';
 interface MenuInfo {
   id: string;
   nm: string;
@@ -23,6 +22,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
+  
   menu: [
     { id: 'Stock', nm: '주식' },
     { id: 'Coin', nm: '코인' },
@@ -33,6 +33,7 @@ const initialState: InitialState = {
 };
 
 const MainPage = (): React.ReactElement => {
+
   const [menu, setMenu] = useState('Stock');
 
   const getMenuEle = (type: string) => {
@@ -91,7 +92,7 @@ const MainPage = (): React.ReactElement => {
 
         <ContentDiv>{getMenuEle(menu)}</ContentDiv>
         <RightAd>
-          <GoogleAdsense adClient="ca-pub-1338813848148433" adSlot="7410699856" />
+            <GoogleAd />
         </RightAd>
       </MainDiv>
       <div style={{ textAlign: 'center' }}>
