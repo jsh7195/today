@@ -66,6 +66,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.js",
+    "prod": "cross-env NODE_ENV=production webpack-dev-server --inline --progress --config build/webpack.config.js",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "lint-fix": "eslint ./src/**/*.{ts,tsx} --fix",
     "start": "yarn dev",

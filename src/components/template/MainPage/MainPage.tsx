@@ -91,7 +91,7 @@ const MainPage = (): React.ReactElement => {
 
         <ContentDiv>{getMenuEle(menu)}</ContentDiv>
         <RightAd>
-          <GoogleAdsense adClient="ca-pub-1338813848148433" adSlot="7410699856" />
+          {/* <GoogleAdsense adClient="ca-pub-1338813848148433" adSlot="7410699856" />
           <GoogleAdsense
             adClient="ca-pub-1338813848148433"
             adSlot="7410699856"
@@ -99,7 +99,7 @@ const MainPage = (): React.ReactElement => {
             adLayout="in-article"
             adFormat="fluid"
             fullWidthResponsive="true"
-          />
+          /> */}
         </RightAd>
       </MainDiv>
       <div style={{ textAlign: 'center' }}>

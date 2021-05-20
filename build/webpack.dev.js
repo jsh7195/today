@@ -64,7 +64,9 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 7000,
+    host: '0.0.0.0',
+    port: 3000,
+    https:false,
     contentBase: path.resolve(`${__dirname}`),
     inline: true,
     writeToDisk: true,
