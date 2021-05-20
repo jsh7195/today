@@ -17,8 +17,8 @@ webpack-dev-server
 - 부동산 관련 api 추가 (서울, 경기도)
 - 괜찮은 design template으로 layout 변경
 
-- aws ec2에 호스팅 -> 구글 광고 추가 -> 공공데이터 운영계정 신청
+- aws ec2에 호스팅 -> 구글 광고 추가 -> 공공데이터 운영계정 신청 (완)
 
-
+url : http://freerun.me/
 
 ![today현재](https://user-images.githubusercontent.com/13713152/118281700-7a3b3b00-b508-11eb-8648-b5e55d6d2b6d.JPG)
