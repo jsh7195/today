@@ -46,13 +46,13 @@ const Weather = (): React.ReactElement => {
                 <div>한국 미세먼지 Loading...</div>
                 :
                 <>
-                <button onClick={()=>{setInform('PM10')}}>미세먼지</button>
-                <button onClick={()=>{setInform('PM25')}}>초미세먼지</button>
+                <button onClick={()=>{setInform('PM10')}} style={{ backgroundColor : informCode === 'PM10'?'red':'gray'}}>미세먼지</button>
+                <button onClick={()=>{setInform('PM25')}} style={{ backgroundColor : informCode !== 'PM10'?'red':'gray'}}>초미세먼지</button>
                     <div style={{fontSize : '2rem'}}
                         onMouseEnter={() => { setDsp(true) }}
                         onMouseLeave={() => { setDsp(false) }}
                     >
-                        [[ 시간별 초/미세먼지 움짤로 확인하기 ]]
+                        [[ 현재 시간이후 {informCode === 'PM10'?'미세먼지':'초미세먼지'} 예보 움짤 확인 ]]
                 <img src={_airState[0] && informCode === 'PM10' ? _airState[0]?.imageUrl7 : _airState[0]?.imageUrl8 } alt="time series air" style={{ display: dps ? 'block' : 'none' }} />
                     </div>
                     {

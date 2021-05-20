@@ -115,6 +115,14 @@ module.exports = {
           '/SUB-DATAKR/': '/',
         },
       },
+      '/SUB-DATAKR2/': {
+        target: `http://openapi.molit.go.kr:8081`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/SUB-DATAKR2/': '/',
+        },
+      },
     },
   },
 
