@@ -3,9 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import _ from 'lodash';
 import { weatherState, weatherLoading, fetchSeoulWeather, fetchKoreaAir, AirState, AirLoading } from '@slice/WeatherSlice';
-// import {} from './style'
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+        maxWidth: 360,
+    },
+}));
 
 const Weather = (): React.ReactElement => {
+
+    const classes = useStyles();
+
     const dispatch = useDispatch();
 
     const [informCode, setInform] = useState('PM10');
@@ -34,35 +48,44 @@ const Weather = (): React.ReactElement => {
         getKoreaAirApi();
     }, [informCode])
 
-    return <div>
-        {
-            _weatherLoading ?
-                <div>서울 날씨 Loading....</div>
-                :
-                <div>현재 서울온도 : {_weatherState.main.temp}</div>
-        }
+    return <List component="nav" className={classes.root} aria-label="mailbox folders">
+        <ListItem>
+            {
+                _weatherLoading ?
+                    <div>서울 날씨 Loading....</div>
+                    :
+                    <div>현재 서울온도 : {_weatherState.main.temp}</div>
+            }
+        </ListItem>
+        <Divider />
+
         {
             _airLoading ?
                 <div>한국 미세먼지 Loading...</div>
                 :
                 <>
-                <button onClick={()=>{setInform('PM10')}} style={{ backgroundColor : informCode === 'PM10'?'red':'gray'}}>미세먼지</button>
-                <button onClick={()=>{setInform('PM25')}} style={{ backgroundColor : informCode !== 'PM10'?'red':'gray'}}>초미세먼지</button>
-                    <div style={{fontSize : '2rem'}}
+                    <ListItem>
+                        <button onClick={() => { setInform('PM10') }} style={{ backgroundColor: informCode === 'PM10' ? 'red' : 'gray' }}>미세먼지</button>
+                        <button onClick={() => { setInform('PM25') }} style={{ backgroundColor: informCode !== 'PM10' ? 'red' : 'gray' }}>초미세먼지</button>
+                    </ListItem>
+                    {/* <div style={{fontSize : '2rem'}}
                         onMouseEnter={() => { setDsp(true) }}
                         onMouseLeave={() => { setDsp(false) }}
                     >
                         [[ 현재 시간이후 {informCode === 'PM10'?'미세먼지':'초미세먼지'} 예보 움짤 확인 ]]
                 <img src={_airState[0] && informCode === 'PM10' ? _airState[0]?.imageUrl7 : _airState[0]?.imageUrl8 } alt="time series air" style={{ display: dps ? 'block' : 'none' }} />
-                    </div>
+                    </div> */}
                     {
                         _airState[0] ?
-                            <div>
-                                <br/>
-                                <div>발생원인 : {_airState[0].informCause}</div>
-                                <br/>
-                                <div>예보개황 : {_airState[0].informCause}</div>
-                            </div>
+                            <>
+                                <ListItem>
+                                    <div>발생원인 : {_airState[0].informCause}</div>
+                                </ListItem>
+                                <Divider />
+                                <ListItem>
+                                    <div>예보개황 : {_airState[0].informCause}</div>
+                                </ListItem>
+                            </>
                             :
                             ''
                     }
@@ -70,7 +93,7 @@ const Weather = (): React.ReactElement => {
 
         }
 
-    </div>
+    </List>
 }
 
 export default Weather

@@ -22,7 +22,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  
+
   menu: [
     { id: 'Stock', nm: '주식' },
     { id: 'Coin', nm: '코인' },
@@ -58,7 +58,9 @@ const MainPage = (): React.ReactElement => {
           {initialState.menu.map((item) => {
             return (
               <NavItemDiv key={item.id + 'ids'}>
-                <span onClick={(e) => setMenu(item.id)}>{item.nm}</span>
+                <span 
+                 style={{ width: '100%', display: 'inline-block', textAlign: 'center'}}
+                 onClick={(e) => setMenu(item.id)}>{item.nm}</span>
               </NavItemDiv>
             );
           })}
@@ -92,18 +94,16 @@ const MainPage = (): React.ReactElement => {
 
         <ContentDiv>{getMenuEle(menu)}</ContentDiv>
         <RightAd>
-            <GoogleAd />
+          <GoogleAd />
         </RightAd>
       </MainDiv>
       <div style={{ textAlign: 'center' }}>
         나 편할려고 만든 사이트{' '}
         <a
-          target="_blank"
-          rel="noreferrer"
           style={{ color: 'white' }}
-          href="jsh7195gg@gmail.com"
+          href="mailto:jsh7195gg@gmail.com"
         >
-          문의
+          메일로 문의
         </a>
       </div>
     </>

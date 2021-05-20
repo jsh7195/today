@@ -10,7 +10,7 @@ export const NavDownDiv = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     padding-right: 40px;
-    width: 13%;
+    // width: 13%;
 `;
 
 export const ContentDiv = styled.div`
