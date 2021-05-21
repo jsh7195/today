@@ -92,8 +92,9 @@ const MainPage = (): React.ReactElement => {
               referrerPolicy="unsafe-url"
             ></iframe>
           </div>
-        
-        <GoogleAd />
+        <div>
+          <GoogleAd />
+        </div>
         <ContentDiv>{getMenuEle(menu)}</ContentDiv>
         {/* <RightAd> */}
           
