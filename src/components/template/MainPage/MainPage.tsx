@@ -56,9 +56,6 @@ const MainPage = (): React.ReactElement => {
     <>
       <MainDiv>
         <NavDownDiv>
-          <NavItemDiv>
-            <GoogleAd />
-          </NavItemDiv>
           {initialState.menu.map((item) => {
             return (
               <NavItemDiv key={item.id + 'ids'}>
@@ -96,14 +93,15 @@ const MainPage = (): React.ReactElement => {
             ></iframe>
           </div>
         
-
+        <GoogleAd />
         <ContentDiv>{getMenuEle(menu)}</ContentDiv>
         {/* <RightAd> */}
           
         {/* </RightAd> */}
       </MainDiv>
+      <GoogleAd />
       <div style={{ textAlign: 'center' }}>
-        나 편할려고 만든 사이트{' '}
+        성투하세요
         <a
           style={{ color: 'white' }}
           href="mailto:jsh7195gg@gmail.com"
