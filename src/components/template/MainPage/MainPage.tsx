@@ -12,7 +12,7 @@ import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
 import Game from '@template/Game/Game';
-import GoogleAd from '@module/AD/GoogleAd';
+import {GoogleAd, GoogleAdFooter} from '@module/AD/GoogleAd';
 interface MenuInfo {
   id: string;
   nm: string;
@@ -99,7 +99,7 @@ const MainPage = (): React.ReactElement => {
           
         {/* </RightAd> */}
       </MainDiv>
-      <GoogleAd />
+      <GoogleAdFooter />
       <div style={{ textAlign: 'center' }}>
         성투하세요
         <a
