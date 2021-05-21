@@ -4,12 +4,12 @@ import { isMobile } from 'react-device-detect';
 
 export const MainDiv = styled.div`
     display: flex;
-    flex-direction: ${isMobile ? 'column':'row'};
+    flex-direction: ${isMobile ? 'column':'column'};
     flex-wrap: wrap
 `
 export const NavDownDiv = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction:  ${!isMobile ? 'row':'row'};
     flex-wrap: wrap;
     padding-right: 10px;
 `;
@@ -24,6 +24,8 @@ export const ContentDiv = styled.div`
 
 
 export const NavItemDiv = styled.div`
+    width: 18rem;
+    height:5rem;
     font-size: 30px;
     padding-bottom: 30px;
     border: gray 2px outset;

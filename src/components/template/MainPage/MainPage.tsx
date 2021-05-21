@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import {
   MainDiv,
   NavDownDiv,
@@ -59,11 +60,12 @@ const MainPage = (): React.ReactElement => {
             return (
               <NavItemDiv key={item.id + 'ids'}>
                 <span 
-                 style={{ width: '100%', display: 'inline-block', textAlign: 'center'}}
+                 style={{ width: '100%', height:'140%', display: 'inline-block', textAlign: 'center'}}
                  onClick={(e) => setMenu(item.id)}>{item.nm}</span>
               </NavItemDiv>
             );
           })}
+          </NavDownDiv>
           <div
             style={{
               display: 'flex',
@@ -90,7 +92,7 @@ const MainPage = (): React.ReactElement => {
               referrerPolicy="unsafe-url"
             ></iframe>
           </div>
-        </NavDownDiv>
+        
 
         <ContentDiv>{getMenuEle(menu)}</ContentDiv>
         <RightAd>
