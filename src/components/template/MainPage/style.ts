@@ -18,7 +18,7 @@ export const ContentDiv = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 67%;
+    width: 100%;
     height: 100%
 `;
 

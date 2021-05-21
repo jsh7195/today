@@ -56,6 +56,9 @@ const MainPage = (): React.ReactElement => {
     <>
       <MainDiv>
         <NavDownDiv>
+          <NavItemDiv>
+            <GoogleAd />
+          </NavItemDiv>
           {initialState.menu.map((item) => {
             return (
               <NavItemDiv key={item.id + 'ids'}>
@@ -95,9 +98,9 @@ const MainPage = (): React.ReactElement => {
         
 
         <ContentDiv>{getMenuEle(menu)}</ContentDiv>
-        <RightAd>
-          <GoogleAd />
-        </RightAd>
+        {/* <RightAd> */}
+          
+        {/* </RightAd> */}
       </MainDiv>
       <div style={{ textAlign: 'center' }}>
         나 편할려고 만든 사이트{' '}
