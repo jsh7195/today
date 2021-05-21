@@ -103,12 +103,14 @@ const MainPage = (): React.ReactElement => {
       <GoogleAdFooter />
       <div style={{ textAlign: 'center' }}>
         성투하세요
-        <a
+        <br/>
+        사이트문의 : <a
           style={{ color: 'white' }}
           href="mailto:jsh7195gg@gmail.com"
         >
-          메일로 문의
-        </a>
+          jsh7195gg@gmail.com 
+        </a><br/>
+        discord : 미숫가루라떼#4526
       </div>
     </>
   );

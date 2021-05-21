@@ -16,7 +16,6 @@ export const GoogleAd = () => {
                 style={{ display: "inline-block", width: "728px", height: "90px" }}
                 data-ad-client="ca-pub-1338813848148433"
                 data-ad-slot="7410699856"
-                data-ad-format="auto"
             />
         </ div>
     )
@@ -37,7 +36,6 @@ export const GoogleAdFooter = () => {
                 style={{ display: "inline-block", width: "728px", height: "90px" }}
                 data-ad-client="ca-pub-1338813848148433"
                 data-ad-slot="4826297913"
-                data-ad-format="auto"
             />
         </ div>
     )
