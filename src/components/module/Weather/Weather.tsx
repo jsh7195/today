@@ -4,10 +4,7 @@ import moment from 'moment';
 import _ from 'lodash';
 import { weatherState, weatherLoading, fetchSeoulWeather, fetchKoreaAir, AirState, AirLoading } from '@slice/WeatherSlice';
 import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
+import { RootDiv, ItemDiv } from './style';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,7 +20,7 @@ const Weather = (): React.ReactElement => {
     const dispatch = useDispatch();
 
     const [informCode, setInform] = useState('PM10');
-    const [dps, setDsp] = useState(false);
+    const [dps, setDsp] = useState(true);
 
     const _weatherState = useSelector(weatherState);
     const _weatherLoading = useSelector(weatherLoading);
@@ -48,52 +45,43 @@ const Weather = (): React.ReactElement => {
         getKoreaAirApi();
     }, [informCode])
 
-    return <List component="nav" className={classes.root} aria-label="mailbox folders">
-        <ListItem>
+    return <>
             {
                 _weatherLoading ?
-                    <div>서울 날씨 Loading....</div>
+                    <ItemDiv>서울 날씨 Loading....</ItemDiv>
                     :
-                    <div>현재 서울온도 : {_weatherState.main.temp}</div>
+                    <RootDiv>
+                        <ItemDiv>현재 서울온도 : {_weatherState.main.temp}</ItemDiv>
+                        <ItemDiv>흐림 : {_weatherState.main.clouds?.all || 0}</ItemDiv>
+                        <ItemDiv>최근 1시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['1h'] : 0}</ItemDiv>
+                        <ItemDiv>최근 3시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['3h'] : 0}</ItemDiv>
+                    </RootDiv>
             }
-        </ListItem>
-        <Divider />
+        <RootDiv>
+            {
+                _airState[0] ?
+                    <>
+                        <ItemDiv>발생원인 : {_airState[0].informCause}</ItemDiv>
+                        <ItemDiv>예보개황 : {_airState[0].informCause}</ItemDiv>
+                    </>
+                    :
+                    ''
+            }
+        </RootDiv>
+            {
+                _airLoading ?
+                    <div>한국 미세먼지 Loading...</div>
+                    :
+                    <div>
+                        <button onClick={() => { setInform('PM10') }} style={{ width: '6rem', backgroundColor: informCode === 'PM10' ? 'red' : 'gray' }}>미세먼지</button>
+                        <button onClick={() => { setInform('PM25') }} style={{ width: '6rem', backgroundColor: informCode !== 'PM10' ? 'red' : 'gray' }}>초미세먼지</button>
+                        <div>
+                            <img src={_airState[0] && informCode === 'PM10' ? _airState[0]?.imageUrl7 : _airState[0]?.imageUrl8} alt="time series air" style={{ display: dps ? 'block' : 'none', width: '30rem' }} />
+                        </div>
+                    </div>
 
-        {
-            _airLoading ?
-                <div>한국 미세먼지 Loading...</div>
-                :
-                <>
-                    <ListItem>
-                        <button onClick={() => { setInform('PM10') }} style={{ backgroundColor: informCode === 'PM10' ? 'red' : 'gray' }}>미세먼지</button>
-                        <button onClick={() => { setInform('PM25') }} style={{ backgroundColor: informCode !== 'PM10' ? 'red' : 'gray' }}>초미세먼지</button>
-                    </ListItem>
-                    {/* <div style={{fontSize : '2rem'}}
-                        onMouseEnter={() => { setDsp(true) }}
-                        onMouseLeave={() => { setDsp(false) }}
-                    >
-                        [[ 현재 시간이후 {informCode === 'PM10'?'미세먼지':'초미세먼지'} 예보 움짤 확인 ]]
-                <img src={_airState[0] && informCode === 'PM10' ? _airState[0]?.imageUrl7 : _airState[0]?.imageUrl8 } alt="time series air" style={{ display: dps ? 'block' : 'none' }} />
-                    </div> */}
-                    {
-                        _airState[0] ?
-                            <>
-                                <ListItem>
-                                    <div>발생원인 : {_airState[0].informCause}</div>
-                                </ListItem>
-                                <Divider />
-                                <ListItem>
-                                    <div>예보개황 : {_airState[0].informCause}</div>
-                                </ListItem>
-                            </>
-                            :
-                            ''
-                    }
-                </>
-
-        }
-
-    </List>
+            }
+    </>
 }
 
 export default Weather

@@ -8,9 +8,7 @@ const Life = (): React.ReactElement => {
         <ChartItemDiv>
             <Corona />
         </ChartItemDiv>
-        <SmallItemDiv>
-            <Weather />
-        </SmallItemDiv>
+        <Weather />
     </RootDiv>
 }
 

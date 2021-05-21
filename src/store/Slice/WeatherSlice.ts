@@ -16,6 +16,8 @@ interface Weather {
     temp_max: number;
     pressure: number;
     humidity: number;
+    clouds: any;
+    rain: any;
   };
   loading: boolean;
 }
@@ -92,6 +94,8 @@ export const weather = createSlice({
       temp_max: 0,
       pressure: 0,
       humidity: 0,
+      clouds: { all : 0 },
+      rain: {'1h': 0, '3h': 0},
     },
     loading: false,
   },
@@ -105,10 +109,9 @@ export const weather = createSlice({
     [fetchSeoulWeather.fulfilled.type]: (state, action) => {
       // 성공
       state.loading = false;
-      const getMain = action.payload?.main;
-      getMain.temp = (getMain.temp - 273.15).toFixed(1);
-      getMain.feels_like = (getMain.feels_like - 273.15).toFixed(1);
-
+      const getMain = action.payload;
+      getMain.temp = (getMain.main.temp - 273.15).toFixed(1);
+      getMain.feels_like = (getMain.main.feels_like - 273.15).toFixed(1);
       state.main = getMain;
     },
     [fetchSeoulWeather.rejected.type]: (

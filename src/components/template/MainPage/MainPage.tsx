@@ -28,7 +28,7 @@ const initialState: InitialState = {
     { id: 'Coin', nm: '코인' },
     { id: 'Life', nm: '일상' },
     { id: 'Game', nm: '게임' },
-    { id: 'Estate', nm: '부동산' },
+    // { id: 'Estate', nm: '부동산' },
   ],
 };
 

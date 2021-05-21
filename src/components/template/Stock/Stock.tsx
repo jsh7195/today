@@ -89,7 +89,7 @@ const Stock = (): React.ReactElement => {
                     }
                 </ItemDiv>
                 <ItemDiv>
-                    <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://finviz.com/map.ashx">나스닥 맵</a>
+                    <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://finviz.com/map.ashx">{`S&P500 맵`}</a>
                 </ItemDiv>
             </RootDiv>
             <RootDiv>

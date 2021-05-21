@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import { theme } from 'styled-tools';
+import { isMobile } from 'react-device-detect';
+
 export const MainDiv = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: ${isMobile ? 'column':'row'};
     flex-wrap: wrap
 `
 export const NavDownDiv = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding-right: 40px;
-    // width: 13%;
+    padding-right: 10px;
 `;
 
 export const ContentDiv = styled.div`

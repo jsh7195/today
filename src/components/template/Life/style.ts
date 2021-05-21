@@ -3,7 +3,7 @@ import { theme } from 'styled-tools';
 
 export const RootDiv = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap
 `;
 

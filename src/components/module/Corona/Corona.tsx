@@ -4,7 +4,7 @@ import { fetchCorona, coronaLoading, coronaState, corona, coronaDiffCnt, coronaA
 import moment from 'moment';
 import Chart from 'react-apexcharts'
 import _ from 'lodash';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { numComma } from '@lib/common';
 import { ChartDiv } from './style';
 
@@ -35,7 +35,7 @@ const Corona = (): React.ReactElement => {
         ],
         options: {
             chart: {
-                type: 'area',
+                type: 'bar',
                 zoom: {
                     enabled: false
                 }
@@ -115,7 +115,7 @@ const Corona = (): React.ReactElement => {
             }
 
         },
-        maintainAspectRatio: false
+        maintainAspectRatio: true
     };
     // chartjs option end
 
@@ -129,7 +129,7 @@ const Corona = (): React.ReactElement => {
                 {
                     coronaFullDate.date && coronaFullDate.date.length > 0 ?
                     <ChartDiv>
-                        <Line data={chartjsData} options={options} type="linear" width={180} height={80} />
+                        <Bar data={chartjsData} options={options} type="bar" width={180} height={80} />
                         <div>{moment().add(-2,'days').format('YYYY.MM.DD')} 확진자 수 : {diff}</div>
                         <div>{moment().add(-3,'days').format('YYYY.MM.DD')} 확진자 수 : {agoDiff}</div>
                     </ChartDiv>

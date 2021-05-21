@@ -131,6 +131,9 @@ const Coin = (): React.ReactElement => {
                     }
                 </ItemDiv>
                 <ItemDiv>
+                    <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://kimpga.com/">{`김프 사이트`}</a>
+                </ItemDiv>
+                <ItemDiv>
                     <Tv ticker={selectCoins} kind="coin"/>
                 </ItemDiv>
             </RootDiv>
