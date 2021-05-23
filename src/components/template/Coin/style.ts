@@ -11,3 +11,7 @@ export const ItemDiv = styled.div`
     padding-bottom: 30px;
     padding-right: 30px;
 `;
+
+export const ChartDiv = styled.div`
+    float: left;
+`;

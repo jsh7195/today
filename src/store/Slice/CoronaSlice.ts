@@ -59,7 +59,6 @@ export const fetchCorona = createAsyncThunk<
         })
         return data;
     } catch (e) {
-        console.log(e)
     }
 })
 

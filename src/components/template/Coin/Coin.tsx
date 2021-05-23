@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootDiv, ItemDiv } from './style';
+import { RootDiv, ItemDiv, ChartDiv } from './style';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import {
     createMuiTheme,
@@ -134,9 +134,15 @@ const Coin = (): React.ReactElement => {
                     <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://kimpga.com/">{`김프 사이트`}</a>
                 </ItemDiv>
                 <ItemDiv>
-                    <Tv ticker={selectCoins} kind="coin"/>
+                    <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://www.binance.com/ko">{`바이낸스`}</a>
+                </ItemDiv>
+                <ItemDiv>
+                    <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://upbit.com/home">{`업비트`}</a>
                 </ItemDiv>
             </RootDiv>
+            <ChartDiv>
+                <Tv ticker={selectCoins} kind="coin"/>
+            </ChartDiv>
         </div>
     )
 }
