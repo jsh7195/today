@@ -15,8 +15,7 @@ webpack-dev-server
 - 
 # TODO
 - 초기에 제외시킨 tslint, pre-commit 다시 추가
-- 괜찮은 design template으로 layout 변경
-  mobile 환경 고려해서 퍼블리싱 수정작업
+- 웹보다는 보통 mobile로 자주 사용하기 때문에 mobile에 보기편한 퍼블리싱으로 수정
 - recoil 일부 적용
 - aws ssl 신청
 - 날씨 정보 > 흐림수치 확인 && 현재 사용자가 위치한 지역으로 가져오기
