@@ -11,14 +11,15 @@ webpack-dev-server
 - react javascript
 - typescript로 변경
 - redux에서 redux-toolkit으로 변경
-
+- aws ec2에 호스팅 -> 구글 광고 추가 -> 공공데이터 운영계정 신청
+- 
 # TODO
 - 초기에 제외시킨 tslint, pre-commit 다시 추가
-- 부동산 관련 api 추가 (서울, 경기도)
 - 괜찮은 design template으로 layout 변경
-- mobile 환경 고려해서 퍼블리싱 수정작업
+  mobile 환경 고려해서 퍼블리싱 수정작업
 - recoil 일부 적용
-- aws ec2에 호스팅 -> 구글 광고 추가 -> 공공데이터 운영계정 신청 (완)
+- aws ssl 신청
+- 날씨 정보 > 흐림수치 확인 && 현재 사용자가 위치한 지역으로 가져오기
 
 # url
 - http://freerun.me/
