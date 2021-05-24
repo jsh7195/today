@@ -62,7 +62,7 @@ const AntMain = () => {
             onCollapse={onCollapse}
         >
             <div className="App-logo" />
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+            <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline">
                 {
                     initialState.menu.map((item, index) => {
                         return (<Menu.Item key={index} onClick={(e) => setMenu(item.id)}>
