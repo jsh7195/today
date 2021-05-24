@@ -1,5 +1,4 @@
 import React from 'react';
-import MainPage from '@template/MainPage/MainPage';
 import AntMain from '@template/MainPage/AntMain';
 
 

@@ -3,19 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootDiv, ItemDiv, ChartDiv } from './style';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import {
-    createMuiTheme,
     makeStyles,
     createStyles,
     Theme as AugmentedTheme,
-    ThemeProvider,
 } from '@material-ui/core/styles';
-import LabelInput from '@module/LabelInput/LabelInput';
 import { RootReducerType } from '@store/store';
 import { fetchWaterTempData } from '@store/actions/Investment/WaterTempActions';
 import { fetchCoinListData, fetchCoinInfoData, fetchBinBtcInfoData } from '@actions/Investment/CoinInfoActions';
 import { fetchFgi, fgiState, exchangeRateState, exchangeRateLoading, fgiLoading, fetchExchangeRate } from '@slice/StockSlice';
 import { Tv } from '@module/TradingviewWidget/Tv';
-import { Dashboard } from '@module/TradingviewWidget/Dashboard';
 const useStyles = makeStyles((theme: AugmentedTheme) =>
     createStyles({
         root: {
@@ -92,7 +88,7 @@ const Coin = (): React.ReactElement => {
         searchCoinInfoFn();
     }, [selectCoins])
     return (
-        <div>
+        <div style={{ width: '100%', height: '100%'}}>
             <RootDiv>
                 <ItemDiv>
                     <NativeSelect

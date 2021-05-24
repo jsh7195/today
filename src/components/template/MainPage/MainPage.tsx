@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   MainDiv,
   NavDownDiv,
   ContentDiv,
-  ItemDiv,
   NavItemDiv,
-  RightAd,
 } from './style';
 import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
@@ -27,7 +25,6 @@ const initialState: InitialState = {
     { id: 'Coin', nm: '코인' },
     { id: 'Life', nm: '일상' },
     { id: 'Game', nm: '게임' },
-    // { id: 'Estate', nm: '부동산' },
   ],
 };
 
