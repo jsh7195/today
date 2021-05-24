@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import { Layout, Menu, Breadcrumb, Alert } from 'antd';
-import Icon from '@ant-design/icons';
+import { StockOutlined, CloudFilled, SmileTwoTone, DollarOutlined } from '@ant-design/icons';
 import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
@@ -10,6 +10,7 @@ import { GoogleAd, GoogleAdFooter } from '@module/AD/GoogleAd';
 interface MenuInfo {
     id: string;
     nm: string;
+    icon: any;
 }
 
 interface InitialState {
@@ -18,10 +19,10 @@ interface InitialState {
 
 const initialState: InitialState = {
     menu: [
-        { id: 'Stock', nm: '주식' },
-        { id: 'Coin', nm: '코인' },
-        { id: 'Life', nm: '일상' },
-        { id: 'Game', nm: '게임' },
+        { id: 'Life', nm: '일상', icon: <CloudFilled />},
+        { id: 'Game', nm: '게임', icon: <SmileTwoTone />},
+        { id: 'Stock', nm: '주식', icon: <StockOutlined /> },
+        { id: 'Coin', nm: '코인', icon:  <DollarOutlined />},
         // { id: 'Estate', nm: '부동산' },
     ],
 };
@@ -37,7 +38,7 @@ const AntMain = () => {
     const { SubMenu } = Menu;
     const { Header, Content, Sider, Footer } = Layout;
 
-    const [menu, setMenu] = useState('Stock');
+    const [menu, setMenu] = useState('Life');
 
     const getMenuEle = (type: string) => {
         switch (type) {
@@ -65,7 +66,7 @@ const AntMain = () => {
                 {
                     initialState.menu.map((item, index) => {
                         return (<Menu.Item key={index} onClick={(e) => setMenu(item.id)}>
-                            <Icon type="pie-chart" />
+                            {item.icon}
                             <span>{item.nm}</span>
                         </Menu.Item>)
                     })
@@ -73,22 +74,24 @@ const AntMain = () => {
             </Menu>
         </Sider>
         <Layout>
-            <Header style={{ background: '#fff', padding: 0 }} />
-            <Content style={{ margin: '0 16px' , backgroundColor: 'black' }}>
+            <Header style={{ background: 'black', padding: 0 }} />
+            <Content style={{ backgroundColor: 'black' }}>
+                <div style={{ margin: '0 0 0 15px'}}>
                 {getMenuEle(menu)}
+                </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>
+            <Footer style={{ textAlign: 'center', backgroundColor: 'black', color: 'white'}}>
                 Ant Design ©2018 Created by Ant UED
                 <div style={{ textAlign: 'center' }}>
                     성투하세요
-        <br />
-        사이트문의 :{' '}
+                    <br />
+                    사이트문의 :{' '}
                     <a style={{ color: 'white' }} href="mailto:jsh7195gg@gmail.com">
                         jsh7195gg@gmail.com
-        </a>
+                    </a>
                     <br />
-        discord : 미숫가루라떼#4526
-      </div>
+                    discord : 미숫가루라떼#4526
+                </div>
             </Footer>
         </Layout>
     </Layout>);

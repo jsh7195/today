@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import moment from 'moment';
 import _ from 'lodash';
 import { weatherState, weatherLoading, fetchSeoulWeather, fetchKoreaAir, AirState, AirLoading } from '@slice/WeatherSlice';
@@ -48,7 +50,7 @@ const Weather = (): React.ReactElement => {
     return <>
             {
                 _weatherLoading ?
-                    <ItemDiv>서울 날씨 Loading....</ItemDiv>
+                    <ItemDiv>서울 날씨 <LoadingOutlined/></ItemDiv>
                     :
                     <RootDiv>
                         <ItemDiv>현재 서울온도 : {_weatherState.main.temp}</ItemDiv>
@@ -70,11 +72,11 @@ const Weather = (): React.ReactElement => {
         </RootDiv>
             {
                 _airLoading ?
-                    <div>한국 미세먼지 Loading...</div>
+                    <div>한국 미세먼지 <LoadingOutlined/> </div>
                     :
                     <div>
-                        <button onClick={() => { setInform('PM10') }} style={{ width: '6rem', backgroundColor: informCode === 'PM10' ? 'red' : 'gray' }}>미세먼지</button>
-                        <button onClick={() => { setInform('PM25') }} style={{ width: '6rem', backgroundColor: informCode !== 'PM10' ? 'red' : 'gray' }}>초미세먼지</button>
+                        <Button onClick={() => { setInform('PM10') }} style={{ width: '6rem', backgroundColor: informCode === 'PM10' ? 'red' : 'gray' }}>미세먼지</Button>
+                        <Button onClick={() => { setInform('PM25') }} style={{ width: '6rem', backgroundColor: informCode !== 'PM10' ? 'red' : 'gray' }}>초미세먼지</Button>
                         <div>
                             <img src={_airState[0] && informCode === 'PM10' ? _airState[0]?.imageUrl7 : _airState[0]?.imageUrl8} alt="time series air" style={{ display: dps ? 'block' : 'none', width: '30rem' }} />
                         </div>
