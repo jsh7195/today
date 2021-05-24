@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 
 export const Dashboard = (): React.ReactElement => {
   const makeNasdaqSnp = () => {
@@ -42,7 +43,7 @@ export const Dashboard = (): React.ReactElement => {
   }, []);
 
   return (
-    <div style={{ width: '95%', overflowX: 'scroll' }}>
+    <div style={{ width: '95%' , overflowX: 'auto' }}>
       <div style={{ width: '1200px' }}>
         <div className="tradingview-widget-container">
           <div id="dashboard" />
