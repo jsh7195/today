@@ -4,9 +4,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import "antd/dist/antd.css";
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import store from './store/store';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>

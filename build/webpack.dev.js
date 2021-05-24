@@ -3,15 +3,20 @@ const webpack = require('webpack');
 const dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const domain = process.env.NODE_ENV === 'local' ? 'http://localhost:9071' : 'http://221.139.14.153:9071'
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const fs = require('fs');
+const lessToJs = require('less-vars-to-js');
+const themeVariables = lessToJs(
+  fs.readFileSync(path.join(__dirname, 'ant-theme-vars.less'), 'utf8')
+);
 const resolve = (dir) => {
-  return path.join(__dirname, '..', dir)
-}
+  return path.join(__dirname, '..', dir);
+};
 
 module.exports = {
   mode: 'development',
   resolve: {
-    extensions: ['.js', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.json', '.ts', '.tsx', '.less'],
     alias: {
       '@': resolve('src'),
       '@slice': resolve('src/store/Slice'),
@@ -41,7 +46,11 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react','@babel/preset-typescript'],
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript',
+              ],
             },
           },
         ],
@@ -61,6 +70,23 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(less)$/,
+        loader: 'less-loader', // compiles Less to CSS
+      },
+      // {
+      //   test: /\.less$/,
+      //   use: ExtractTextPlugin.extract([
+      //     { loader: 'css-loader' },
+      //     {
+      //       loader: 'less-loader',
+      //       options: {
+      //         modifyVars: themeVariables,
+      //         root: path.resolve(__dirname, './'),
+      //       },
+      //     },
+      //   ]),
+      // },
     ],
   },
   devServer: {
@@ -145,6 +171,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new dotenv()
+    new dotenv(),
   ],
 };
