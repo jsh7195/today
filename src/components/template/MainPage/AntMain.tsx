@@ -1,11 +1,12 @@
 import React, { Component, useState } from 'react';
-import { Layout, Menu, Breadcrumb, Alert } from 'antd';
+import { Layout, Menu, Divider } from 'antd';
 import { StockOutlined, CloudFilled, SmileTwoTone, DollarOutlined } from '@ant-design/icons';
 import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
 import Game from '@template/Game/Game';
 import { GoogleAd, GoogleAdFooter } from '@module/AD/GoogleAd';
+import { isMobile } from 'react-device-detect';
 
 interface MenuInfo {
     id: string;
@@ -62,13 +63,21 @@ const AntMain = () => {
             onCollapse={onCollapse}
         >
             <div className="App-logo" />
-            <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline">
+            <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline" style={{ height : '100%' }}>
                 {
                     initialState.menu.map((item, index) => {
-                        return (<Menu.Item key={index} onClick={(e) => setMenu(item.id)}>
-                            {item.icon}
-                            <span>{item.nm}</span>
-                        </Menu.Item>)
+                        return (
+                        <>
+                            <Menu.Item key={index} 
+                            onClick={(e) => setMenu(item.id)} 
+                            style={{ fontSize : `${isMobile ? '5rem' : '1rem'}` , height : `${isMobile ? '10%' : ''}` , paddingTop: `${isMobile ? '80px' : ''}` }}>
+                                {isMobile ? '' : item.icon}
+                                <span style={{ fontSize : `${isMobile ? '5rem' : '1rem'}` }}>
+                                    {item.nm}
+                                </span>
+                            </Menu.Item>
+                        </>
+                        )
                     })
                 }
             </Menu>

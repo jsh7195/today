@@ -21,11 +21,7 @@ export const Dashboard = (): React.ReactElement => {
           {
             proName: 'FX_IDC:EURUSD',
             title: 'EUR/USD',
-          },
-          {
-            proName: 'KRX:KOSPI200',
-            title: '코스피 200',
-          },
+          }
         ],
         colorTheme: 'dark',
         isTransparent: false,
@@ -43,8 +39,8 @@ export const Dashboard = (): React.ReactElement => {
   }, []);
 
   return (
-    <div style={{ width: '95%' , overflowX: 'auto' }}>
-      <div style={{ width: '1200px' }}>
+    <div style={{ width: '80%' , overflowX: 'auto' }}>
+      <div>
         <div className="tradingview-widget-container">
           <div id="dashboard" />
           <div className="tradingview-widget-container__widget"></div>

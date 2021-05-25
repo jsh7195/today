@@ -69,7 +69,7 @@ export const Tv = ({ ticker, kind }: Props): React.ReactElement => {
   }, []);
 
   return (
-    <div style={{ minWidth:`${isMobile?'45rem':'80rem'}`, minHeight:'500px', height:'1000px' }}>
+    <div style={{ minWidth:`${isMobile?'45rem':'65rem'}`, minHeight:'300px', height:'500px' }}>
       <div className="tradingview-widget-container">
         <div id="tradingview_a0c00"></div>
         <div className="tradingview-widget-copyright">

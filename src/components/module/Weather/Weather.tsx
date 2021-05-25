@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoadingOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Row, Col } from 'antd';
 import moment from 'moment';
 import _ from 'lodash';
 import { weatherState, weatherLoading, fetchSeoulWeather, fetchKoreaAir, AirState, AirLoading } from '@slice/WeatherSlice';
@@ -48,17 +48,31 @@ const Weather = (): React.ReactElement => {
     }, [informCode])
 
     return <>
-            {
-                _weatherLoading ?
-                    <ItemDiv>서울 날씨 <LoadingOutlined/></ItemDiv>
-                    :
-                    <RootDiv>
-                        <ItemDiv>현재 서울온도 : {_weatherState.main.temp}</ItemDiv>
-                        <ItemDiv>흐림 : {_weatherState.main.clouds?.all || 0}</ItemDiv>
-                        <ItemDiv>최근 1시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['1h'] : 0}</ItemDiv>
-                        <ItemDiv>최근 3시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['3h'] : 0}</ItemDiv>
-                    </RootDiv>
-            }
+        {
+            _weatherLoading ?
+                <ItemDiv>서울 날씨 <LoadingOutlined /></ItemDiv>
+                :
+                // <RootDiv>
+                //     <ItemDiv>현재 서울온도 : {_weatherState.main.temp}</ItemDiv>
+                //     <ItemDiv>흐림 : {_weatherState.main.clouds?.all || 0}</ItemDiv>
+                //     <ItemDiv>최근 1시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['1h'] : 0}</ItemDiv>
+                //     <ItemDiv>최근 3시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['3h'] : 0}</ItemDiv>
+                // </RootDiv>
+                <Row>
+                    <Col span={6} order={4}>
+                        현재 서울온도 : {_weatherState.main.temp}
+                    </Col>
+                    <Col span={6} order={3}>
+                        흐림 : {_weatherState.main.clouds?.all || 0}
+                    </Col>
+                    <Col span={6} order={2}>
+                        최근 1시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['1h'] : 0}
+                    </Col>
+                    <Col span={6} order={1}>
+                        최근 3시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['3h'] : 0}
+                    </Col>
+                </Row>
+        }
         <RootDiv>
             {
                 _airState[0] ?
@@ -70,19 +84,19 @@ const Weather = (): React.ReactElement => {
                     ''
             }
         </RootDiv>
-            {
-                _airLoading ?
-                    <div>한국 미세먼지 <LoadingOutlined/> </div>
-                    :
+        {
+            _airLoading ?
+                <div>한국 미세먼지 <LoadingOutlined /> </div>
+                :
+                <div>
+                    <Button onClick={() => { setInform('PM10') }} style={{ width: '6rem', backgroundColor: informCode === 'PM10' ? 'red' : 'gray' }}>미세먼지</Button>
+                    <Button onClick={() => { setInform('PM25') }} style={{ width: '6rem', backgroundColor: informCode !== 'PM10' ? 'red' : 'gray' }}>초미세먼지</Button>
                     <div>
-                        <Button onClick={() => { setInform('PM10') }} style={{ width: '6rem', backgroundColor: informCode === 'PM10' ? 'red' : 'gray' }}>미세먼지</Button>
-                        <Button onClick={() => { setInform('PM25') }} style={{ width: '6rem', backgroundColor: informCode !== 'PM10' ? 'red' : 'gray' }}>초미세먼지</Button>
-                        <div>
-                            <img src={_airState[0] && informCode === 'PM10' ? _airState[0]?.imageUrl7 : _airState[0]?.imageUrl8} alt="time series air" style={{ display: dps ? 'block' : 'none', width: '30rem' }} />
-                        </div>
+                        <img src={_airState[0] && informCode === 'PM10' ? _airState[0]?.imageUrl7 : _airState[0]?.imageUrl8} alt="time series air" style={{ display: dps ? 'block' : 'none', width: '30rem' }} />
                     </div>
+                </div>
 
-            }
+        }
     </>
 }
 
