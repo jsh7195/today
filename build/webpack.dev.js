@@ -152,6 +152,14 @@ module.exports = {
           '/SUB-DATAKR2/': '/',
         },
       },
+      '/LOCALTEMP/': {
+        target: `http://localhost:8080`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/LOCALTEMP/': '/',
+        },
+      },
     },
   },
 

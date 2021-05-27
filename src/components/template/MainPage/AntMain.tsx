@@ -1,17 +1,21 @@
 import React, { Component, useState } from 'react';
 import { Layout, Menu, Divider } from 'antd';
 import { StockOutlined, CloudFilled, SmileTwoTone, DollarOutlined } from '@ant-design/icons';
+import { isMobile } from 'react-device-detect';
+import { Switch, Route } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
 import Game from '@template/Game/Game';
 import { GoogleAd, GoogleAdFooter } from '@module/AD/GoogleAd';
-import { isMobile } from 'react-device-detect';
 
 interface MenuInfo {
     id: string;
     nm: string;
     icon: any;
+    component: any;
+    link: string;
 }
 
 interface InitialState {
@@ -20,10 +24,10 @@ interface InitialState {
 
 const initialState: InitialState = {
     menu: [
-        { id: 'Life', nm: '일상', icon: <CloudFilled />},
-        { id: 'Game', nm: '게임', icon: <SmileTwoTone />},
-        { id: 'Stock', nm: '주식', icon: <StockOutlined /> },
-        { id: 'Coin', nm: '코인', icon:  <DollarOutlined />},
+        { id: 'Life', nm: '일상', icon: <CloudFilled /> , component: Life, link: '/Like'},
+        { id: 'Stock', nm: '주식', icon: <StockOutlined /> ,component: Stock , link: '/Stock'},
+        { id: 'Coin', nm: '코인', icon: <DollarOutlined /> ,component: Coin , link: '/Coin'},
+        { id: 'Game', nm: '게임', icon: <SmileTwoTone /> ,component: Game , link: '/Game'},
         // { id: 'Estate', nm: '부동산' },
     ],
 };
@@ -41,20 +45,21 @@ const AntMain = () => {
 
     const [menu, setMenu] = useState('Life');
 
-    const getMenuEle = (type: string) => {
-        switch (type) {
-            case 'Stock':
-                return <Stock />;
-            case 'Coin':
-                return <Coin />;
-            case 'Life':
-                return <Life />;
-            case 'Game':
-                return <Game />;
-            default:
-                return <div>No Content</div>;
-        }
-    };
+    const switchRoutes = (
+        <Switch>
+            <Route exact path="/" component={Life}/>
+        {initialState.menu.map((prop:MenuInfo) => {
+            console.log(prop);
+            return (
+              <Route
+                path={prop.link}
+                component={prop.component}
+                key={prop.id}
+              />
+            );
+        })}
+      </Switch>
+    );
 
     return (<Layout style={{ minHeight: '100vh' }}>
         <Sider
@@ -63,20 +68,22 @@ const AntMain = () => {
             onCollapse={onCollapse}
         >
             <div className="App-logo" />
-            <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline" style={{ height : '100%' }}>
+            <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline" style={{ height: '100%' }}>
                 {
                     initialState.menu.map((item, index) => {
                         return (
-                        <>
-                            <Menu.Item key={index} 
-                            onClick={(e) => setMenu(item.id)} 
-                            style={{ fontSize : `${isMobile ? '5rem' : '1rem'}` , height : `${isMobile ? '10%' : ''}` , paddingTop: `${isMobile ? '80px' : ''}` }}>
-                                {isMobile ? '' : item.icon}
-                                <span style={{ fontSize : `${isMobile ? '5rem' : '1rem'}` }}>
-                                    {item.nm}
-                                </span>
-                            </Menu.Item>
-                        </>
+                            <>
+                                <Menu.Item key={index}
+                                    onClick={(e) => setMenu(item.id)}
+                                    style={{ fontSize: `${isMobile ? '5rem' : '1rem'}`, height: `${isMobile ? '10%' : ''}`, paddingTop: `${isMobile ? '80px' : ''}` }}>
+                                    {isMobile ? '' : item.icon}
+                                    <span style={{ fontSize: `${isMobile ? '5rem' : '1rem'}` }}>
+                                        <Link to={item.link}>
+                                            {item.nm}
+                                        </Link>
+                                    </span>
+                                </Menu.Item>
+                            </>
                         )
                     })
                 }
@@ -85,11 +92,11 @@ const AntMain = () => {
         <Layout>
             <Header style={{ background: 'black', padding: 0 }} />
             <Content style={{ backgroundColor: 'black' }}>
-                <div style={{ margin: '0 0 0 15px'}}>
-                {getMenuEle(menu)}
+                <div style={{ margin: '0 0 0 15px' }}>
+                        {switchRoutes}
                 </div>
             </Content>
-            <Footer style={{ textAlign: 'center', backgroundColor: 'black', color: 'white'}}>
+            <Footer style={{ textAlign: 'center', backgroundColor: 'black', color: 'white' }}>
                 Ant Design ©2018 Created by Ant UED
                 <div style={{ textAlign: 'center' }}>
                     성투하세요

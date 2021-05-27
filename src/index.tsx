@@ -8,11 +8,13 @@ import "antd/dist/antd.css";
 import App from './App';
 import store from './store/store';
 import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter } from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

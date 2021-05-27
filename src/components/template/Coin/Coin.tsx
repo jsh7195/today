@@ -12,6 +12,7 @@ import { fetchWaterTempData } from '@store/actions/Investment/WaterTempActions';
 import { fetchCoinListData, fetchCoinInfoData, fetchBinBtcInfoData } from '@actions/Investment/CoinInfoActions';
 import { fetchFgi, fgiState, exchangeRateState, exchangeRateLoading, fgiLoading, fetchExchangeRate } from '@slice/StockSlice';
 import { Tv } from '@module/TradingviewWidget/Tv';
+import TopCrypto from '@module/InvestingWidget/TopCrypto';
 const useStyles = makeStyles((theme: AugmentedTheme) =>
     createStyles({
         root: {
@@ -136,6 +137,9 @@ const Coin = (): React.ReactElement => {
                     <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://upbit.com/home">{`업비트`}</a>
                 </ItemDiv>
             </RootDiv>
+            <div>
+                <TopCrypto />
+            </div>
             <ChartDiv>
                 <Tv ticker={selectCoins} kind="coin"/>
             </ChartDiv>

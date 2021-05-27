@@ -52,23 +52,17 @@ const Weather = (): React.ReactElement => {
             _weatherLoading ?
                 <ItemDiv>서울 날씨 <LoadingOutlined /></ItemDiv>
                 :
-                // <RootDiv>
-                //     <ItemDiv>현재 서울온도 : {_weatherState.main.temp}</ItemDiv>
-                //     <ItemDiv>흐림 : {_weatherState.main.clouds?.all || 0}</ItemDiv>
-                //     <ItemDiv>최근 1시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['1h'] : 0}</ItemDiv>
-                //     <ItemDiv>최근 3시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['3h'] : 0}</ItemDiv>
-                // </RootDiv>
                 <Row>
-                    <Col span={6} order={4}>
+                    <Col span={4} order={1}>
                         현재 서울온도 : {_weatherState.main.temp}
                     </Col>
-                    <Col span={6} order={3}>
+                    <Col span={4} order={2}>
                         흐림 : {_weatherState.main.clouds?.all || 0}
                     </Col>
-                    <Col span={6} order={2}>
+                    <Col span={4} order={3}>
                         최근 1시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['1h'] : 0}
                     </Col>
-                    <Col span={6} order={1}>
+                    <Col span={4} order={4}>
                         최근 3시간 강수량 : {_weatherState.main?.rain ? _weatherState.main?.rain['3h'] : 0}
                     </Col>
                 </Row>

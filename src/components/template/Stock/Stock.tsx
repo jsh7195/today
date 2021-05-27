@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Divider } from 'antd';
-import { RootDiv, ItemDiv } from './style';
+import { LoadingOutlined } from '@ant-design/icons';
 import { RootReducerType } from '@store/store';
 import { fetchWaterTempData } from '@store/actions/Investment/WaterTempActions';
 import { fetchCoinListData, fetchCoinInfoData, fetchBinBtcInfoData } from '@actions/Investment/CoinInfoActions';
 import { fetchFgi, fgiState, exchangeRateState, exchangeRateLoading, fgiLoading, fetchExchangeRate } from '@slice/StockSlice';
 import { Tv } from '@module/TradingviewWidget/Tv';
 import { Dashboard } from '@module/TradingviewWidget/Dashboard';
-import { LoadingOutlined } from '@ant-design/icons';
+import EconomicCalendar from '@module/InvestingWidget/EconomicCalendar';
+import CurrencyConvert from '@module/InvestingWidget/CurrencyConvert';
+import { RootDiv, ItemDiv } from './style';
 
 const Stock = (): React.ReactElement => {
 
     const dispatch = useDispatch();
 
-    const [selectCoins, ] = useState('KRW-BTC');
+    const [selectCoins,] = useState('KRW-BTC');
 
     const exchangeInfo = useSelector(exchangeRateState);
     const selectorExchangeRateLoading = useSelector(exchangeRateLoading);
@@ -61,18 +63,17 @@ const Stock = (): React.ReactElement => {
 
         searchCoinInfoFn();
     }, [selectCoins])
-    
+
     return (
-        <div style={{ width: '100%', height: '100%'}}>
+        <div style={{ width: '100%', height: '100%' }}>
             <Dashboard />
-            <Divider />
             <RootDiv>
                 <ItemDiv>
                     <span>한강수온 :{waterTempReducer.temp || ""}</span>
                 </ItemDiv>
                 <ItemDiv>
                     {selectorStockLoading ?
-                        <div>한강 수온 정보 <LoadingOutlined/></div>
+                        <div>한강 수온 정보 <LoadingOutlined /></div>
                         :
                         <div>
                             <span>Fear And Greed : </span>
@@ -83,7 +84,7 @@ const Stock = (): React.ReactElement => {
                 </ItemDiv>
                 <ItemDiv>
                     {selectorExchangeRateLoading ?
-                        <div>환율 정보 <LoadingOutlined/></div>
+                        <div>환율 정보 <LoadingOutlined /></div>
                         :
                         <div>
                             <span>환율 : {exchangeInfo}</span>
@@ -91,8 +92,21 @@ const Stock = (): React.ReactElement => {
                     }
                 </ItemDiv>
                 <ItemDiv>
-                    <a target="_blank" rel="noreferrer" style={{color: "white" }} href="https://finviz.com/map.ashx">{`S&P500 맵`}</a>
+                    <a target="_blank" rel="noreferrer" style={{ color: "white" }} href="https://finviz.com/map.ashx">{`S&P500 맵`}</a>
                 </ItemDiv>
+            </RootDiv>
+            <Divider />
+            <RootDiv>
+                <ItemDiv>
+                    <EconomicCalendar />
+                </ItemDiv>
+                <ItemDiv>
+                    <CurrencyConvert />
+                </ItemDiv>
+            </RootDiv>
+            <Divider />
+            <RootDiv>
+
             </RootDiv>
             <RootDiv>
                 <ItemDiv>
