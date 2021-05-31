@@ -136,7 +136,7 @@ const Corona = (): React.ReactElement => {
                         :
                         <div>코로나 데이터 호출 실패</div>
                 }
-            </>
+            </> 
             :
             <div>코로나 정보 Loading...</div>
     )
