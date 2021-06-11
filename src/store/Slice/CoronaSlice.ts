@@ -77,7 +77,11 @@ export const corona = createSlice({
     date: [''],
     loading: false
   }, 
-  reducers: {},
+  reducers: {
+    testttt: (state, action) => {
+      state.loading = false // mutate the state all you want with immer
+    },
+  },
   extraReducers: {
     [fetchCorona.pending.type]: (state, action) => {
       // 호출 전
@@ -133,3 +137,4 @@ export const coronaLoading = (state: RootReducerType) => state.corona.loading;
 export const coronaDiffCnt = (state: RootReducerType) => state.corona.diff;
 export const coronaAgoDiffCnt = (state: RootReducerType) => state.corona.agoDiffCnt;
 export const coronaFullState = (state: RootReducerType) => state.corona;
+export const {testttt} = corona.actions

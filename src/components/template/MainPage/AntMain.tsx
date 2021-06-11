@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Layout, Menu, Divider } from 'antd';
 import { StockOutlined, CloudFilled, SmileTwoTone, DollarOutlined } from '@ant-design/icons';
 import { isMobile } from 'react-device-detect';
 import { Switch, Route } from 'react-router-dom';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
@@ -12,6 +12,7 @@ import { GoogleAd, GoogleAdFooter } from '@module/AD/GoogleAd';
 
 interface MenuInfo {
     id: string;
+    index: string;
     nm: string;
     icon: any;
     component: any;
@@ -24,15 +25,17 @@ interface InitialState {
 
 const initialState: InitialState = {
     menu: [
-        { id: 'Life', nm: '일상', icon: <CloudFilled /> , component: Life, link: '/Like'},
-        { id: 'Stock', nm: '주식', icon: <StockOutlined /> ,component: Stock , link: '/Stock'},
-        { id: 'Coin', nm: '코인', icon: <DollarOutlined /> ,component: Coin , link: '/Coin'},
-        { id: 'Game', nm: '게임', icon: <SmileTwoTone /> ,component: Game , link: '/Game'},
+        { id: 'Life', index: '0', nm: '일상', icon: <CloudFilled />, component: Life, link: '/life' },
+        { id: 'Stock', index: '1', nm: '주식', icon: <StockOutlined />, component: Stock, link: '/stock' },
+        { id: 'Coin', index: '2', nm: '코인', icon: <DollarOutlined />, component: Coin, link: '/coin' },
+        { id: 'Game', index: '3', nm: '게임', icon: <SmileTwoTone />, component: Game, link: '/game' },
         // { id: 'Estate', nm: '부동산' },
     ],
 };
 
 const AntMain = () => {
+
+    const location = useLocation();
 
     const [state, setState] = useState({ collapsed: false });
 
@@ -43,23 +46,35 @@ const AntMain = () => {
     const { SubMenu } = Menu;
     const { Header, Content, Sider, Footer } = Layout;
 
-    const [menu, setMenu] = useState('Life');
+    const [menu, setMenu] = useState('life');
+    const [menuIndex, setMenuIndex] = useState('0');
 
     const switchRoutes = (
         <Switch>
-            <Route exact path="/" component={Life}/>
-        {initialState.menu.map((prop:MenuInfo) => {
-            console.log(prop);
-            return (
-              <Route
-                path={prop.link}
-                component={prop.component}
-                key={prop.id}
-              />
-            );
-        })}
-      </Switch>
+            <Route exact path="/" component={Life} />
+            {initialState.menu.map((prop: MenuInfo) => {
+                console.log(prop);
+                return (
+                    <Route
+                        path={prop.link}
+                        component={prop.component}
+                        key={prop.id}
+                    />
+                );
+            })}
+        </Switch>
     );
+
+    useEffect(() => {
+        initialState.menu.forEach((item) => {
+            if(item.link === location.pathname){
+                setMenuIndex(item.index);
+            }
+        });
+
+        console.log(location.pathname)
+    }, [location.pathname, menuIndex])
+
 
     return (<Layout style={{ minHeight: '100vh' }}>
         <Sider
@@ -68,7 +83,7 @@ const AntMain = () => {
             onCollapse={onCollapse}
         >
             <div className="App-logo" />
-            <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline" style={{ height: '100%' }}>
+            <Menu theme="dark" defaultSelectedKeys={[menuIndex]} mode="inline" style={{ height: '100%' }}>
                 {
                     initialState.menu.map((item, index) => {
                         return (
@@ -90,10 +105,59 @@ const AntMain = () => {
             </Menu>
         </Sider>
         <Layout>
-            <Header style={{ background: 'black', padding: 0 }} />
+            <Header style={{ background: 'black', padding: 0 , height:'auto' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        flexWrap: 'nowrap',
+                    }}
+                >
+                    <iframe
+                        title="coupa1"
+                        src="https://coupa.ng/bZicV8"
+                        width="160"
+                        height="240"
+                        frameBorder="0"
+                        scrolling="no"
+                        referrerPolicy="unsafe-url"
+                        style={{ background: 'white' }}
+                    ></iframe>
+                    <iframe
+                        title="coupa2"
+                        src="https://coupa.ng/b0aDTH"
+                        width="160"
+                        height="240"
+                        scrolling="no"
+                        frameBorder="0"
+                        referrerPolicy="unsafe-url"
+                        style={{ background: 'white' }}
+                    ></iframe>
+                    <iframe
+                        title="baedduck"
+                        src="https://coupa.ng/b0aCTE"
+                        width="160"
+                        height="240"
+                        scrolling="no"
+                        frameBorder="0"
+                        referrerPolicy="unsafe-url"
+                        style={{ background: 'white' }}
+                    ></iframe>
+                    <iframe
+                        title="salchistake"
+                        src="https://coupa.ng/b0aDkt"
+                        width="160"
+                        height="240"
+                        frameBorder="0"
+                        scrolling="no"
+                        referrerPolicy="unsafe-url"
+                        style={{ background: 'white' }}
+                    ></iframe>
+                </div>
+            </Header>
             <Content style={{ backgroundColor: 'black' }}>
                 <div style={{ margin: '0 0 0 15px' }}>
-                        {switchRoutes}
+                    {switchRoutes}
                 </div>
             </Content>
             <Footer style={{ textAlign: 'center', backgroundColor: 'black', color: 'white' }}>
