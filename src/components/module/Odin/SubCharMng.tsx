@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 //import { charMngModel } from '@module/DB/OdinCharMngDB';
-
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 
 
     
@@ -24,29 +23,30 @@ import mongoose from 'mongoose';
 
 const SubCharMng = (): React.ReactElement => {
 
-    const url = "mongodb+srv://chanhwuicoco:m6400lin@chcluster.fuuee.mongodb.net/OdinDB?retryWrites=true&w=majority";
-    mongoose.Promise = global.Promise;
+    const url = process.env.MONGO_URL;
+    console.log(url);
+    // mongoose.Promise = global.Promise;
     
-    mongoose.connect(url)
-    .then(() => console.log(`mongoDB connected`))
-    .catch((err) => console.error(err));
+    // mongoose.connect(url)
+    // .then(() => console.log(`mongoDB connected`))
+    // .catch((err) => console.error(err));
 
-    const charMngSchema = new mongoose.Schema({
-        userId : {type:String, required: true},
-        userPw : {type:String, required: true},
-        userGroup : String,        
-        charInfo : [{
-            charName : String,
-            charJob : String,
-            charLev : Number,
-            charDesc : String,
-            charGongHeo : Boolean,
-            charNanJangEe : Boolean,
-            charPrison : Boolean
-        }]
-    });
+    // const charMngSchema = new mongoose.Schema({
+    //     userId : {type:String, required: true},
+    //     userPw : {type:String, required: true},
+    //     userGroup : String,        
+    //     charInfo : [{
+    //         charName : String,
+    //         charJob : String,
+    //         charLev : Number,
+    //         charDesc : String,
+    //         charGongHeo : Boolean,
+    //         charNanJangEe : Boolean,
+    //         charPrison : Boolean
+    //     }]
+    // });
     
-    const charMngModel = mongoose.model('OdinCollection', charMngSchema);
+    // const charMngModel = mongoose.model('OdinCollection', charMngSchema);
 
     /////////////////////////
 
