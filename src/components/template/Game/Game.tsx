@@ -1,8 +1,13 @@
 import React from 'react';
+import DemageCalc from '@/components/module/Odin/DemageCalc';
 
 const Life = (): React.ReactElement => {
   return (
     <>
+      <div>
+        <span>오딘 발할라 라이징</span>
+        <DemageCalc />
+      </div>
       <div>
         <span>리그오브레전드</span>
         <ul>
