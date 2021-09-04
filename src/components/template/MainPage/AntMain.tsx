@@ -155,12 +155,12 @@ const AntMain = () => {
               style={{ background: 'white' }}
             ></iframe>
             <iframe
-              title="coupa2"
-              src="https://coupa.ng/b0aDTH"
-              width="160"
+              title="rice"
+              src="https://coupa.ng/b6Bijd"
+              width="120"
               height="240"
-              scrolling="no"
               frameBorder="0"
+              scrolling="no"
               referrerPolicy="unsafe-url"
               style={{ background: 'white' }}
             ></iframe>
