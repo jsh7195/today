@@ -136,7 +136,19 @@ const AntMain = () => {
         </Menu>
       </Sider>
       <Layout>
-        <Header style={{ background: 'black', padding: 0, height: 'auto' }}>
+        <Header
+          style={{ background: 'black', padding: 0, height: 'auto' }}
+        ></Header>
+        <Content style={{ backgroundColor: 'black' }}>
+          <div style={{ margin: '0 0 0 15px' }}>{switchRoutes}</div>
+        </Content>
+        <Footer
+          style={{
+            textAlign: 'center',
+            backgroundColor: 'black',
+            color: 'white',
+          }}
+        >
           <div
             style={{
               display: 'flex',
@@ -185,17 +197,6 @@ const AntMain = () => {
               style={{ background: 'white' }}
             ></iframe>
           </div>
-        </Header>
-        <Content style={{ backgroundColor: 'black' }}>
-          <div style={{ margin: '0 0 0 15px' }}>{switchRoutes}</div>
-        </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-            backgroundColor: 'black',
-            color: 'white',
-          }}
-        >
           Ant Design ©2018 Created by Ant UED
           <div style={{ textAlign: 'center' }}>
             성투하세요
