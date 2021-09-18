@@ -7,6 +7,12 @@ export const RootDiv = styled.div`
     flex-wrap: wrap
 `;
 
+export const RootDivCol = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap
+`;
+
 export const ItemDiv = styled.div`
     padding-bottom: 30px;
     padding-right: 30px;

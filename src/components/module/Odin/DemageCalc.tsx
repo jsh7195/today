@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import LabelInput from '../LabelInput/LabelInput';
 import moment from 'moment';
 import _ from 'lodash';
+import infoImg from '@module/Odin/info1.png';
+import statImg from '@module/Odin/stat_info.png';
 
 const DemageCalc = (): React.ReactElement => {
   const [power, setPower] = useState('0');
@@ -72,6 +74,13 @@ const DemageCalc = (): React.ReactElement => {
 
   return (
     <div>
+      <span style={{ fontSize:'30px' }}>오딘 발할라 스킬데미지 계산기</span>
+      <br/>
+      <img alt="statImg" src={statImg} style={{ width : '25%'}}/>
+      <br/>
+      <img alt="info1" src={infoImg} />
+      <br />
+      <br />
       <br />
       <LabelInput
         id="power"
@@ -126,7 +135,7 @@ const DemageCalc = (): React.ReactElement => {
       />
       <button onClick={()=>{calcRealDmgFn()}} style={{color:'black'}}>보정치 적용된 스킬뎀 계산하기</button>
       <br />
-      <span>보정치 % : {correction}</span> <br />
+      <span title="몬스터레벨보다 공격력레벨이 높을 때 보정이 적용된다.">보정치 % : {correction}</span> <br />
       <span>보정치 적용된 스킬데미지 : {coreSkill}</span>
     </div>
   );

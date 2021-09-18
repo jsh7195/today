@@ -38,22 +38,22 @@ const initialState: InitialState = {
       component: Life,
       link: '/life',
     },
-    {
-      id: 'Stock',
-      index: '1',
-      nm: '주식',
-      icon: <StockOutlined />,
-      component: Stock,
-      link: '/stock',
-    },
-    {
-      id: 'Coin',
-      index: '2',
-      nm: '코인',
-      icon: <DollarOutlined />,
-      component: Coin,
-      link: '/coin',
-    },
+    // {
+    //   id: 'Stock',
+    //   index: '1',
+    //   nm: '주식',
+    //   icon: <StockOutlined />,
+    //   component: Stock,
+    //   link: '/stock',
+    // },
+    // {
+    //   id: 'Coin',
+    //   index: '2',
+    //   nm: '코인',
+    //   icon: <DollarOutlined />,
+    //   component: Coin,
+    //   link: '/coin',
+    // },
     {
       id: 'Game',
       index: '3',
@@ -196,11 +196,12 @@ const AntMain = () => {
               referrerPolicy="unsafe-url"
               style={{ background: 'white' }}
             ></iframe>
+            <br/>
           </div>
+          <div style={{ float:'left' }}>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</div>
+          <br/>
           Ant Design ©2018 Created by Ant UED
           <div style={{ textAlign: 'center' }}>
-            성투하세요
-            <br />
             사이트문의 :{' '}
             <a style={{ color: 'white' }} href="mailto:jsh7195gg@gmail.com">
               jsh7195gg@gmail.com
