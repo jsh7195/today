@@ -57,7 +57,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/,
-        use: ['file-loader', { loader: 'url-loader' }],
+        use: ['file-loader'],
       },
       {
         test: /\.(scss|css)$/,

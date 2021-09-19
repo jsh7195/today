@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import LabelInput from '../LabelInput/LabelInput';
 import moment from 'moment';
 import _ from 'lodash';
+import infoImg from '@module/Odin/info1.png';
+import statImg from '@module/Odin/stat_info.png';
 
 const DemageCalc = (): React.ReactElement => {
   const [power, setPower] = useState('0');
@@ -41,11 +43,7 @@ const DemageCalc = (): React.ReactElement => {
     setSkillDmg(Number(calcSkillDmg.toFixed(2)));
   };
 
-  useEffect(() => {
-    caclDmg();
-  }, [power, allpower, skillPower, anyPower, skillRate]);
-
-  useEffect(() => {
+  const calcRealDmg = () => {
     let corre = '';
     if (Number(realHitDmg) > Number(baseDmg)) {
       const diff = Number(realHitDmg) - Number(baseDmg);
@@ -56,19 +54,33 @@ const DemageCalc = (): React.ReactElement => {
       // 실제 때린 데미지가 작을 때
       const diff = Number(baseDmg) - Number(realHitDmg);
       const calcRate = (diff / Number(baseDmg)) * 100;
-      corre = calcRate.toFixed(2);
+      corre = `-${calcRate.toFixed(2)}`;
       setCorrection(String('-' + calcRate.toFixed(2)));
     }
-    console.log(corre , 'corre');
+    console.log('skillDmg' , skillDmg , corre, (skillDmg * (Number(corre) / 100)), correction);
 
-    const correSkillDmg = skillDmg + skillDmg * (Number(corre) / 100);
+    let correSkillDmg = skillDmg + (skillDmg * (Number(corre) / 100));
 
     setCoreSkill(correSkillDmg);
+  }
 
-  }, [realHitDmg]);
+  useEffect(() => {
+    caclDmg();
+  }, [power, allpower, skillPower, anyPower, skillRate]);
+
+  const calcRealDmgFn = () => {
+    calcRealDmg();
+  }
 
   return (
     <div>
+      <span style={{ fontSize:'30px' }}>오딘 발할라 스킬데미지 계산기</span>
+      <br/>
+      <img alt="statImg" src={statImg} style={{ width : '25%'}}/>
+      <br/>
+      <img alt="info1" src={infoImg} />
+      <br />
+      <br />
       <br />
       <LabelInput
         id="power"
@@ -77,10 +89,10 @@ const DemageCalc = (): React.ReactElement => {
         setData={setPower}
       />
       <LabelInput
-        id="allpower"
-        label="근접,원거리,마법 데미지 % : "
-        value={allpower}
-        setData={setAllPower}
+        id="skillPower"
+        label="스킬 데미지 % : "
+        value={skillPower}
+        setData={setSkillPower}
       />
       <LabelInput
         id="anyPower"
@@ -89,10 +101,10 @@ const DemageCalc = (): React.ReactElement => {
         setData={setAnyPower}
       />
       <LabelInput
-        id="skillPower"
-        label="스킬 데미지 % : "
-        value={skillPower}
-        setData={setSkillPower}
+        id="allpower"
+        label="근접,원거리,마법 데미지 % : "
+        value={allpower}
+        setData={setAllPower}
       />
       <br />
       <LabelInput
@@ -101,7 +113,6 @@ const DemageCalc = (): React.ReactElement => {
         value={skillRate}
         setData={setSkillRate}
       />
-
       <LabelInput
         id="baseDmg"
         label="계산한 평타 데미지 : "
@@ -122,8 +133,9 @@ const DemageCalc = (): React.ReactElement => {
         value={realHitDmg}
         setData={setRealHitDmg}
       />
+      <button onClick={()=>{calcRealDmgFn()}} style={{color:'black'}}>보정치 적용된 스킬뎀 계산하기</button>
       <br />
-      <span>보정치 % : {correction}</span> <br/>
+      <span title="몬스터레벨보다 공격력레벨이 높을 때 보정이 적용된다.">보정치 % : {correction}</span> <br />
       <span>보정치 적용된 스킬데미지 : {coreSkill}</span>
     </div>
   );

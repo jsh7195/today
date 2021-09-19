@@ -6,7 +6,7 @@ import moment from 'moment';
 import _ from 'lodash';
 import { weatherState, weatherLoading, fetchSeoulWeather, fetchKoreaAir, AirState, AirLoading } from '@slice/WeatherSlice';
 import { makeStyles } from '@material-ui/core/styles';
-import { RootDiv, ItemDiv } from './style';
+import { RootDiv, ItemDiv, RootDivCol } from './style';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -67,7 +67,7 @@ const Weather = (): React.ReactElement => {
                     </Col>
                 </Row>
         }
-        <RootDiv>
+        <RootDivCol>
             {
                 _airState[0] ?
                     <>
@@ -77,7 +77,7 @@ const Weather = (): React.ReactElement => {
                     :
                     ''
             }
-        </RootDiv>
+        </RootDivCol>
         {
             _airLoading ?
                 <div>한국 미세먼지 <LoadingOutlined /> </div>
