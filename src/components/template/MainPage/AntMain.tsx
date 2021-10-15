@@ -13,6 +13,7 @@ import Stock from '@template/Stock/Stock';
 import Coin from '@template/Coin/Coin';
 import Life from '@template/Life/Life';
 import Game from '@template/Game/Game';
+import Diablo from '@template/Diablo/Diablo';
 import { GoogleAd, GoogleAdFooter } from '@module/AD/GoogleAd';
 
 interface MenuInfo {
@@ -32,37 +33,28 @@ const initialState: InitialState = {
   menu: [
     {
       id: 'Life',
-      index: '0',
+      index: '1',
       nm: '일상',
       icon: <CloudFilled />,
       component: Life,
       link: '/life',
     },
-    // {
-    //   id: 'Stock',
-    //   index: '1',
-    //   nm: '주식',
-    //   icon: <StockOutlined />,
-    //   component: Stock,
-    //   link: '/stock',
-    // },
-    // {
-    //   id: 'Coin',
-    //   index: '2',
-    //   nm: '코인',
-    //   icon: <DollarOutlined />,
-    //   component: Coin,
-    //   link: '/coin',
-    // },
     {
       id: 'Game',
-      index: '3',
-      nm: '게임',
+      index: '2',
+      nm: '오딘 발할라',
       icon: <SmileTwoTone />,
       component: Game,
       link: '/game',
     },
-    // { id: 'Estate', nm: '부동산' },
+    {
+      id: 'Diablo',
+      index: '3',
+      nm: '디아블로2',
+      icon: <SmileTwoTone />,
+      component: Diablo,
+      link: '/Diablo',
+    },
   ],
 };
 
