@@ -1,7 +1,7 @@
 import React from 'react';
 import DemageCalc from '@/components/module/Odin/DemageCalc';
 
-const Life = (): React.ReactElement => {
+const Game = (): React.ReactElement => {
   return (
     <>
       <div>
@@ -11,4 +11,4 @@ const Life = (): React.ReactElement => {
   );
 };
 
-export default Life;
+export default Game;
