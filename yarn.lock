@@ -3327,6 +3327,11 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
+"@types/webrtc@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/webrtc/-/webrtc-0.0.30.tgz#5631d10ef5870f22344d1949bf8e5e63e44ba695"
+  integrity sha512-6RtNrygZrRP8dPMzYejjfRQHiNOGqb6T9dbXaDXorm9opA2N8t6VfFKtHPoJUHErjsSBX/XhDDEf+r+ptmLZJw==
+
 "@types/yargs-parser@*":
   version "20.2.0"
   resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-20.2.0.tgz#dd3e6699ba3237f0348cd085e4698780204842f9"
