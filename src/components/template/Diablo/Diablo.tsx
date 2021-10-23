@@ -158,7 +158,6 @@ const Diablo = (): React.ReactElement => {
     let r:string[] = [];
     setResult([]);
     splitText.forEach((item) => {
-      console.log(item);
       if(keyword && item.indexOf(keyword) > -1){
         r.push(item);
       }
@@ -168,7 +167,6 @@ const Diablo = (): React.ReactElement => {
 
   useEffect(() => {
     let addStr:string = localStorage.getItem('orText') || '';
-    console.log('addStr',addStr);
     if(addStr && addStr.length > 0){
       addStr = JSON.parse(addStr);
       setOr(addStr);
@@ -202,7 +200,6 @@ const Diablo = (): React.ReactElement => {
       }
       <br/>
       <textarea value={orText} rows="24" cols="80" onChange={(e)=>{
-        console.log('e',e.target.value);
         setOr(e.target.value);
       }}>
       </textarea>

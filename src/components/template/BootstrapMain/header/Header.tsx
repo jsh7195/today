@@ -5,15 +5,15 @@ import Life from '@template/Life/Life';
 import Game from '@template/Game/Game';
 import Diablo from '@template/Diablo/Diablo';
 import { Common } from '@/myTypes/myTypes';
+import { getOffsetTo, scrollMove } from '@lib/common'
 
 const Header = (): React.ReactElement => {
-  //   useEffect(() => {}, []);
 
   const Menus: Common.Menu[] = [
     {
       id: 'Life',
       index: '1',
-      nm: '일상',
+      nm: '일상 Life',
       icon: <CloudFilled />,
       component: Life,
       link: '/life',
@@ -21,7 +21,7 @@ const Header = (): React.ReactElement => {
     {
       id: 'Game',
       index: '2',
-      nm: '오딘 발할라',
+      nm: '오딘 발할라 Odin',
       icon: <SmileTwoTone />,
       component: Game,
       link: '/game',
@@ -29,10 +29,10 @@ const Header = (): React.ReactElement => {
     {
       id: 'Diablo',
       index: '3',
-      nm: '디아블로2',
+      nm: '디아블로2 Diablod 2',
       icon: <SmileTwoTone />,
       component: Diablo,
-      link: '/Diablo',
+      link: '/diablo',
     },
   ];
 
@@ -41,7 +41,7 @@ const Header = (): React.ReactElement => {
       <div className="container d-flex align-items-center justify-content-lg-between">
         <h1 className="logo me-auto me-lg-0">
           <a href="index.html">
-            Gp<span>.</span>
+            Game Application<span>.</span>
           </a>
         </h1>
 
@@ -51,8 +51,9 @@ const Header = (): React.ReactElement => {
               Menus.map((menu) => {
                 return (
                   <li>
-                    {/* <i className="bx bx-chevron-right"></i> */}
-                    <Link to={menu.link}>{menu.nm}</Link>
+                    <Link to={menu.link} onClick={(item) => {
+                      scrollMove(getOffsetTo('about'));
+                    }}>{menu.nm}</Link>
                   </li>
                 );
               })
@@ -62,10 +63,6 @@ const Header = (): React.ReactElement => {
           </ul>
           <i className="bi bi-list mobile-nav-toggle"></i>
         </nav>
-
-        <a href="#about" className="get-started-btn scrollto">
-          Get Started
-        </a>
       </div>
     </header>
   );

@@ -30,14 +30,15 @@ const Body = () => {
       nm: '디아블로2',
       icon: <SmileTwoTone />,
       component: Diablo,
-      link: '/Diablo',
+      link: '/diablo',
     },
   ];
 
   const switchRoutes = (
     <Switch>
+      <Route exact path="/" component={Life} />
       {Menus.map((prop: Common.Menu) => {
-        console.log(prop);
+        <Route path={prop.link} component={prop.component} key={prop.id} />
         return (
           <Route path={prop.link} component={prop.component} key={prop.id} />
         );
