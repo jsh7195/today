@@ -51,7 +51,7 @@ const Header = (): React.ReactElement => {
               Menus.map((menu) => {
                 return (
                   <li>
-                    <Link to={menu.link} onClick={(item) => {
+                    <Link className="nav-link scrollto active" to={menu.link} onClick={(item) => {
                       scrollMove(getOffsetTo('about'));
                     }}>{menu.nm}</Link>
                   </li>
