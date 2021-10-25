@@ -18,7 +18,7 @@ const BootstrapMain = () => {
           >
             <div className="col-xl-6 col-lg-8">
               <h1>
-                Game Application<span>.</span>
+                Game App<span>.</span>
               </h1>
               <h2>필요한 기능 Email로 주세요.(jsh7195gg@gmail.com)</h2>
             </div>
