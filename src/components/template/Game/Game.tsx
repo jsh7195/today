@@ -2,7 +2,7 @@ import React from 'react';
 import DemageCalc from '@/components/module/Odin/DemageCalc';
 import SubCharMng from '@/components/module/Odin/SubCharMng';
 
-const Life = (): React.ReactElement => {
+const Game = (): React.ReactElement => {
   return (
     <>
       <div>
@@ -13,4 +13,4 @@ const Life = (): React.ReactElement => {
   );
 };
 
-export default Life;
+export default Game;

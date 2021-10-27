@@ -4,6 +4,7 @@ const dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
 const lessToJs = require('less-vars-to-js');
 const themeVariables = lessToJs(
@@ -179,6 +180,7 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new CopyWebpackPlugin([{ from: 'public/assets', to: './assets/' }]),
     new dotenv(),
   ],
 };

@@ -33,5 +33,5 @@
       "@const/*": ["./src/constants/serviceConstants/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src", "public/aseets"]
 }
