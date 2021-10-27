@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { CharTable, CharTableTh, CharInnerTable, CharInnerTr, CharInnerTd } from './style';
+import ToggleSwitch from '@/components/common/ToggleSwitch';
 
 import arkmage from './images/arkmage.png';
 import assasin from './images/assasin.png';
@@ -107,6 +108,10 @@ const SubCharMng = (): React.ReactElement => {
 
 
     // 렌더링 함수
+    const toggleBtn = (idx:any) => {
+        
+    }
+
     const charRendering = () => {
         const result = [];
         for(let idx = 0; idx < 5 ; idx++ ){            
@@ -138,7 +143,10 @@ const SubCharMng = (): React.ReactElement => {
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <button type="button">공허</button>
+                                                        <ToggleSwitch
+                                                            label={"Switch"+idx}
+                                                            complete={_loginCharInfo[idx]["charGongHeo"]}
+                                                            />
                                                     </td>
                                                 </tr>
                                             </tbody>
