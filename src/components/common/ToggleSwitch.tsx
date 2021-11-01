@@ -2,20 +2,14 @@ import React from 'react';
 import './ToggleSwitch.css';
 
 interface Props {
-  label: string;
-  complete: boolean;
+  id: string;
 }
 
-const ToggleSwitch = ({ label, complete }: Props): React.ReactElement => {
+const ToggleSwitch = ({ id }: Props): React.ReactElement => {
   return (
-    <div className='container'>
-      <div className='toggle-switch'>
-        <input type='checkbox' className='checkbox' checked={complete} name={label} id={label} />
-        <label className='label' htmlFor={label}>
-          <span className='inner' />
-          <span className='switch' />
-        </label>
-      </div>
+    <div>
+      <input className="tgl tgl-flip" id="cb5" type="checkbox"/>
+      <label className="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" htmlFor="cb5"></label>
     </div>
   );
 }
