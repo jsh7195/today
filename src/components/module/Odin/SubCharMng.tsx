@@ -5,7 +5,6 @@ import { CharInnerLeftTable, CharInnerRightTable, CharInnerInfoTd, CharInnerName
 import { CharCreateHeaderTd, CharCreateBodyTd, CharCreateInput } from './style';
 import { Btn, ToggleOn, ToggleOff } from './style';
 import _ from 'lodash';
-import ToggleSwitch from '@/components/common/ToggleSwitch';
 
 import arkmage from './images/arkmage.png';
 import assasin from './images/assasin.png';
@@ -59,7 +58,7 @@ const SubCharMng = (): React.ReactElement => {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const getRunning = async(type:string,param:any) => {
-        const response = await axios.get('http://localhost:3001/char'+type, {params: param});
+        const response = await axios.get('http://3.36.158.125/char'+type, {params: param});
         console.log("getRunning responseData :", response.data);
 
         // login
@@ -98,7 +97,7 @@ const SubCharMng = (): React.ReactElement => {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const postRunning = async(type:string,param:any) => {
-        const response = await axios.post('http://localhost:3001/char'+type, {params: param});
+        const response = await axios.post('http://3.36.158.125/char'+type, {params: param});
         console.log("postRunning responseData : ", response.data);
     }
 
