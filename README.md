@@ -4,8 +4,9 @@
 # yarn dev
 webpack-dev-server
 
+
 # use 
-내가 쓸려고 만든 사이트
+내가 하는 게임의 정보 모음
 
 # history
 - react javascript
@@ -16,13 +17,14 @@ webpack-dev-server
 - aws ec2 hosting, 가비아 도메인 구매
 
 # TODO
-- 초기에 제외시킨 tslint, pre-commit 다시 추가
-- 웹보다는 보통 mobile로 자주 사용하기 때문에 mobile에 보기편한 퍼블리싱으로 수정
-- recoil 일부 적용
+- ~~초기에 제외시킨 tslint, pre-commit 다시 추가~~
+- ~~웹보다는 보통 mobile로 자주 사용하기 때문에 mobile에 보기편한 퍼블리싱으로 수정~~
+- ~~recoil 일부 적용~~
+- ~~날씨 정보 > 흐림수치 확인 && 현재 사용자가 위치한 지역으로 가져오기~~
 - aws ssl 신청
-- 날씨 정보 > 흐림수치 확인 && 현재 사용자가 위치한 지역으로 가져오기
 
 # url
 - http://freerun.me/
 
-![today현재](https://user-images.githubusercontent.com/13713152/118281700-7a3b3b00-b508-11eb-8648-b5e55d6d2b6d.JPG)
+- 하루하루 이슈를 체크하는 사이트로 출발했으나,
+  각종 신작게임들의 정보나 유용한 기능을 만들어 사용중입니다.
