@@ -81,7 +81,6 @@ const Corona = (): React.ReactElement => {
             }
         },
     };
-    // ------- chart opt end
 
     // chartjs option
     const chartjsData = {
@@ -113,9 +112,8 @@ const Corona = (): React.ReactElement => {
                     beginAtZero: true,
                 },
             }
-
         },
-        maintainAspectRatio: true
+        maintainAspectRatio: false
     };
     // chartjs option end
 
@@ -129,6 +127,7 @@ const Corona = (): React.ReactElement => {
                 {
                     coronaFullDate.date && coronaFullDate.date.length > 0 ?
                     <ChartDiv>
+                        <h3>코로나 확진자</h3>
                         <Bar data={chartjsData} options={options} type="bar" width={180} height={80} />
                         <div>{moment().add(-2,'days').format('YYYY.MM.DD')} 확진자 수 : {diff}</div>
                         <div>{moment().add(-3,'days').format('YYYY.MM.DD')} 확진자 수 : {agoDiff}</div>

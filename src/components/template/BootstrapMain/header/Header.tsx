@@ -6,7 +6,6 @@ import Game from '@template/Game/Game';
 import Diablo from '@template/Diablo/Diablo';
 import { Common } from '@/myTypes/myTypes';
 import { getOffsetTo, scrollMove } from '@lib/common'
-// import { MobileView, BrowserView } from 'react-device-detect';
 
 const Header = (): React.ReactElement => {
   const Menus: Common.Menu[] = [
@@ -45,22 +44,8 @@ const Header = (): React.ReactElement => {
   const [active, setActive] = useState(0); //active index
 
   return (
-    <header id="header" className="fixed-top ">
+    <header id="header" className="fixed-top" style={{ backgroundColor: 'black' }}>
       <div className="container d-flex align-items-center justify-content-lg-between">
-        {/* <MobileView>
-        <h1 className="logo me-lg-0">
-          <a href="/">
-            Game App<span>.</span>
-          </a>
-        </h1>
-        </MobileView>
-        <BrowserView>
-        <h1 className="logo me-auto me-lg-0">
-          <a href="/">
-            Game App<span>.</span>
-          </a>
-        </h1>
-        </BrowserView> */}
         <h1 className="logo me-auto me-lg-0">
           <a href="/">
             Game App<span>.</span>

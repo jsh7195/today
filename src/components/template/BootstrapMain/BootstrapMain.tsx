@@ -30,7 +30,15 @@ const BootstrapMain = () => {
         <section id="about" className="about">
           <div className="container" data-aos="fade-up">
             <div>
-              <iframe title="main" src="https://ads-partners.coupang.com/widgets.html?id=524418&template=carousel&trackingCode=AF7065418&subId=&width=680&height=140" width="680" height="140" frameBorder="0" scrolling="no" referrerPolicy="unsafe-url"></iframe>
+              <iframe
+                title="main"
+                src="https://ads-partners.coupang.com/widgets.html?id=524418&template=carousel&trackingCode=AF7065418&subId=&width=680&height=140"
+                width="680"
+                height="140"
+                frameBorder="0"
+                scrolling="no"
+                referrerPolicy="unsafe-url"
+              ></iframe>
             </div>
             <div className="row">
               <Body />
@@ -38,62 +46,82 @@ const BootstrapMain = () => {
           </div>
         </section>
       </main>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'nowrap',
-        }}
-      >
-        <iframe
-          title="coupa1"
-          src="https://coupa.ng/bZicV8"
-          width="160"
-          height="240"
-          frameBorder="0"
-          scrolling="no"
-          referrerPolicy="unsafe-url"
-          style={{ background: 'white' }}
-        ></iframe>
-        <iframe
-          title="rice"
-          src="https://coupa.ng/b6Bijd"
-          width="120"
-          height="240"
-          frameBorder="0"
-          scrolling="no"
-          referrerPolicy="unsafe-url"
-          style={{ background: 'white' }}
-        ></iframe>
-        <iframe
-          title="coupa3"
-          src="https://coupa.ng/b6Bckf"
-          width="120"
-          height="240"
-          frameBorder="0"
-          scrolling="no"
-          referrerPolicy="unsafe-url"
-          style={{ background: 'white' }}
-        ></iframe>
-        <iframe
-          title="salchistake"
-          src="https://coupa.ng/b0aDkt"
-          width="160"
-          height="240"
-          frameBorder="0"
-          scrolling="no"
-          referrerPolicy="unsafe-url"
-          style={{ background: 'white' }}
-        ></iframe>
-        <iframe title="cokezero" src="https://coupa.ng/b9kcPP" width="120" height="240" frameBorder="0" scrolling="no" referrerPolicy="unsafe-url" style={{ background: 'white' }}></iframe>
-        <iframe title="pepsizero"src="https://coupa.ng/b9kcZL" width="120" height="240" frameBorder="0" scrolling="no" referrerPolicy="unsafe-url" style={{ background: 'white' }}></iframe>
-        <br />
+      <div className="container">
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'nowrap',
+          }}
+        >
+          <iframe
+            title="coupa1"
+            src="https://coupa.ng/bZicV8"
+            width="160"
+            height="240"
+            frameBorder="0"
+            scrolling="no"
+            referrerPolicy="unsafe-url"
+            style={{ background: 'white' }}
+          ></iframe>
+          <iframe
+            title="rice"
+            src="https://coupa.ng/b6Bijd"
+            width="120"
+            height="240"
+            frameBorder="0"
+            scrolling="no"
+            referrerPolicy="unsafe-url"
+            style={{ background: 'white' }}
+          ></iframe>
+          <iframe
+            title="coupa3"
+            src="https://coupa.ng/b6Bckf"
+            width="120"
+            height="240"
+            frameBorder="0"
+            scrolling="no"
+            referrerPolicy="unsafe-url"
+            style={{ background: 'white' }}
+          ></iframe>
+          <iframe
+            title="salchistake"
+            src="https://coupa.ng/b0aDkt"
+            width="160"
+            height="240"
+            frameBorder="0"
+            scrolling="no"
+            referrerPolicy="unsafe-url"
+            style={{ background: 'white' }}
+          ></iframe>
+          <iframe
+            title="cokezero"
+            src="https://coupa.ng/b9kcPP"
+            width="120"
+            height="240"
+            frameBorder="0"
+            scrolling="no"
+            referrerPolicy="unsafe-url"
+            style={{ background: 'white' }}
+          ></iframe>
+          <iframe
+            title="pepsizero"
+            src="https://coupa.ng/b9kcZL"
+            width="120"
+            height="240"
+            frameBorder="0"
+            scrolling="no"
+            referrerPolicy="unsafe-url"
+            style={{ background: 'white' }}
+          ></iframe>
+          <br />
+        </div>
+        <div>
+          이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를
+          제공받습니다.
+        </div>
       </div>
-      <div style={{ float: 'left' }}>
-        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를
-        제공받습니다.
-      </div>
-      <br/>
+      <br />
       <footer id="footer">
         <div className="container">
           <div className="copyright">
