@@ -55,13 +55,13 @@ export const CharInnerRightTable = styled.table`
 export const CharInnerInfoTd = styled.td`
     text-align: left;
     font-size: 13px;
-    font-color: black;
+    color: black;
 `;
 
 export const CharInnerNameTd = styled.td`
     text-align: left;
     font-size: 15px;
-    font-color: rgb(99, 95, 79);
+    color: rgb(99, 95, 79);
 `;
 
 export const CharInnerBtnTd = styled.td`
